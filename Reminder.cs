@@ -4,9 +4,9 @@ namespace ForgetMeNot
 {
 	class Reminder
 	{
-		public static void OnButtonClicked()
+		public void CreateNewReminder()
 		{
-			Console.WriteLine("Button clicked!");
+			Console.WriteLine("Time to create a new reminder using some database!");
 		}
 	}
 }
