@@ -31,14 +31,13 @@ namespace ForgetMeNot
 		{
 			this.createReminderBtn = new System.Windows.Forms.Button();
 			this.createReminder_group = new System.Windows.Forms.GroupBox();
-			this.createReminder_datePicker = new System.Windows.Forms.DateTimePicker();
-			this.remindCustom_btn = new System.Windows.Forms.Button();
-			this.remindTomorrow_btn = new System.Windows.Forms.Button();
+			this.createReminder_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+			this.remindInMorning_btn = new System.Windows.Forms.Button();
+			this.remindIn6Hours_btn = new System.Windows.Forms.Button();
 			this.remindIn1Hour_btn = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.remindIn30Minutes_btn = new System.Windows.Forms.Button();
 			this.createReminder_text = new System.Windows.Forms.TextBox();
-			this.createReminder_timePicker = new System.Windows.Forms.DateTimePicker();
 			this.createReminder_group.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -54,47 +53,48 @@ namespace ForgetMeNot
 			// 
 			// createReminder_group
 			// 
-			this.createReminder_group.Controls.Add(this.createReminder_timePicker);
-			this.createReminder_group.Controls.Add(this.createReminder_datePicker);
-			this.createReminder_group.Controls.Add(this.remindCustom_btn);
-			this.createReminder_group.Controls.Add(this.remindTomorrow_btn);
+			this.createReminder_group.Controls.Add(this.createReminder_dateTimePicker);
+			this.createReminder_group.Controls.Add(this.remindInMorning_btn);
+			this.createReminder_group.Controls.Add(this.remindIn6Hours_btn);
 			this.createReminder_group.Controls.Add(this.remindIn1Hour_btn);
 			this.createReminder_group.Controls.Add(this.label1);
 			this.createReminder_group.Controls.Add(this.remindIn30Minutes_btn);
 			this.createReminder_group.Controls.Add(this.createReminder_text);
 			this.createReminder_group.Location = new System.Drawing.Point(38, 79);
 			this.createReminder_group.Name = "createReminder_group";
-			this.createReminder_group.Size = new System.Drawing.Size(200, 187);
+			this.createReminder_group.Size = new System.Drawing.Size(200, 165);
 			this.createReminder_group.TabIndex = 1;
 			this.createReminder_group.TabStop = false;
 			this.createReminder_group.Text = "Reminder Details";
 			this.createReminder_group.Visible = false;
 			// 
-			// createReminder_datePicker
+			// createReminder_dateTimePicker
 			// 
-			this.createReminder_datePicker.CustomFormat = "";
-			this.createReminder_datePicker.Location = new System.Drawing.Point(6, 136);
-			this.createReminder_datePicker.Name = "createReminder_datePicker";
-			this.createReminder_datePicker.Size = new System.Drawing.Size(188, 20);
-			this.createReminder_datePicker.TabIndex = 3;
+			this.createReminder_dateTimePicker.CustomFormat = "MM/dd/yy @ hh:mm tt";
+			this.createReminder_dateTimePicker.Location = new System.Drawing.Point(6, 136);
+			this.createReminder_dateTimePicker.Name = "createReminder_dateTimePicker";
+			this.createReminder_dateTimePicker.Size = new System.Drawing.Size(188, 20);
+			this.createReminder_dateTimePicker.TabIndex = 3;
 			// 
-			// remindCustom_btn
+			// remindInMorning_btn
 			// 
-			this.remindCustom_btn.Location = new System.Drawing.Point(106, 107);
-			this.remindCustom_btn.Name = "remindCustom_btn";
-			this.remindCustom_btn.Size = new System.Drawing.Size(75, 23);
-			this.remindCustom_btn.TabIndex = 5;
-			this.remindCustom_btn.Text = "Custom";
-			this.remindCustom_btn.UseVisualStyleBackColor = true;
+			this.remindInMorning_btn.Location = new System.Drawing.Point(106, 107);
+			this.remindInMorning_btn.Name = "remindInMorning_btn";
+			this.remindInMorning_btn.Size = new System.Drawing.Size(75, 23);
+			this.remindInMorning_btn.TabIndex = 5;
+			this.remindInMorning_btn.Text = "Morning";
+			this.remindInMorning_btn.UseVisualStyleBackColor = true;
+			this.remindInMorning_btn.Click += new System.EventHandler(this.remindInMorning_btn_Click);
 			// 
-			// remindTomorrow_btn
+			// remindIn6Hours_btn
 			// 
-			this.remindTomorrow_btn.Location = new System.Drawing.Point(15, 107);
-			this.remindTomorrow_btn.Name = "remindTomorrow_btn";
-			this.remindTomorrow_btn.Size = new System.Drawing.Size(75, 23);
-			this.remindTomorrow_btn.TabIndex = 4;
-			this.remindTomorrow_btn.Text = "Tomorrow";
-			this.remindTomorrow_btn.UseVisualStyleBackColor = true;
+			this.remindIn6Hours_btn.Location = new System.Drawing.Point(15, 107);
+			this.remindIn6Hours_btn.Name = "remindIn6Hours_btn";
+			this.remindIn6Hours_btn.Size = new System.Drawing.Size(75, 23);
+			this.remindIn6Hours_btn.TabIndex = 4;
+			this.remindIn6Hours_btn.Text = "6 hours";
+			this.remindIn6Hours_btn.UseVisualStyleBackColor = true;
+			this.remindIn6Hours_btn.Click += new System.EventHandler(this.remindIn6Hours_btn_Click);
 			// 
 			// remindIn1Hour_btn
 			// 
@@ -104,6 +104,7 @@ namespace ForgetMeNot
 			this.remindIn1Hour_btn.TabIndex = 3;
 			this.remindIn1Hour_btn.Text = "1 hour";
 			this.remindIn1Hour_btn.UseVisualStyleBackColor = true;
+			this.remindIn1Hour_btn.Click += new System.EventHandler(this.remindIn1Hour_btn_Click);
 			// 
 			// label1
 			// 
@@ -133,14 +134,6 @@ namespace ForgetMeNot
 			this.createReminder_text.Size = new System.Drawing.Size(188, 40);
 			this.createReminder_text.TabIndex = 0;
 			// 
-			// createReminder_timePicker
-			// 
-			this.createReminder_timePicker.CustomFormat = "";
-			this.createReminder_timePicker.Location = new System.Drawing.Point(56, 161);
-			this.createReminder_timePicker.Name = "createReminder_timePicker";
-			this.createReminder_timePicker.Size = new System.Drawing.Size(94, 20);
-			this.createReminder_timePicker.TabIndex = 6;
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,12 +156,11 @@ namespace ForgetMeNot
 		private System.Windows.Forms.GroupBox createReminder_group;
 		private System.Windows.Forms.TextBox createReminder_text;
 		private System.Windows.Forms.Button remindIn30Minutes_btn;
-		private System.Windows.Forms.Button remindCustom_btn;
-		private System.Windows.Forms.Button remindTomorrow_btn;
+		private System.Windows.Forms.Button remindInMorning_btn;
+		private System.Windows.Forms.Button remindIn6Hours_btn;
 		private System.Windows.Forms.Button remindIn1Hour_btn;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.DateTimePicker createReminder_datePicker;
-		private System.Windows.Forms.DateTimePicker createReminder_timePicker;
+		private System.Windows.Forms.DateTimePicker createReminder_dateTimePicker;
 	}
 }
 
