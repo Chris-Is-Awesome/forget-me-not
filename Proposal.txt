@@ -1,0 +1,45 @@
+PROJECT NAME:
+
+"Memoree" or "Forget me Not!"; needs something catchy
+
+GOAL:
+
+A desktop application for Windows to make setting reminders simple!
+
+MVP:
+
+• Create a reminder with a set date & time
+• Fire desktop notifications for reminders when they're due
+• Delete reminders
+• Edit the details of reminders
+• Display all active reminders in a list/grid or some kind of view
+
+STUFF FOR MVP:
+
+• Visual Studio
+• .NET Core
+• ASP .NET
+• C#
+• SQL
+
+EXTRAS:
+
+• Program runs in the background
+• Downloadable program installer
+• Duplicate reminders
+• Reminder snoozing (resend reminder notification after x duration)
+• Reminder repeating (repeat reminder every x duration/time)
+• Option to skip next notification for a repeating reminder
+• Instead of specifying date/time, can use relative time (eg. remind me in 5 hours)
+• Customizable sound effect/ringtone for when reminders fire
+• Use Google's API for Google Calendar for option to sync events to allow making reminders for calendar events
+
+STUFF FOR EXTRAS:
+
+• IExpress or 7-Zip to create the installer package, there are many options for this
+• Google Calendar API
+
+ADDITIONAL INFO:
+
+• SQL will be used to store the data for each reminder
+• Visual Studio seems to be required for this to be done in a more efficient way, as it has built-in tools geared towards creating Windows Forms (essentially that's what a basic Windows program is)
