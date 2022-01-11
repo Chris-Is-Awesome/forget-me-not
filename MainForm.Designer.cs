@@ -29,7 +29,7 @@ namespace ForgetMeNot
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.createReminderBtn = new System.Windows.Forms.Button();
+			this.createReminder_btn = new System.Windows.Forms.Button();
 			this.createReminder_group = new System.Windows.Forms.GroupBox();
 			this.createReminder_dateTimePicker = new System.Windows.Forms.DateTimePicker();
 			this.remindInMorning_btn = new System.Windows.Forms.Button();
@@ -38,21 +38,23 @@ namespace ForgetMeNot
 			this.label1 = new System.Windows.Forms.Label();
 			this.remindIn30Minutes_btn = new System.Windows.Forms.Button();
 			this.createReminder_text = new System.Windows.Forms.TextBox();
+			this.submitReminder_btn = new System.Windows.Forms.Button();
 			this.createReminder_group.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// createReminderBtn
+			// createReminder_btn
 			// 
-			this.createReminderBtn.Location = new System.Drawing.Point(85, 50);
-			this.createReminderBtn.Name = "createReminderBtn";
-			this.createReminderBtn.Size = new System.Drawing.Size(103, 23);
-			this.createReminderBtn.TabIndex = 0;
-			this.createReminderBtn.Text = "Create Reminder";
-			this.createReminderBtn.UseVisualStyleBackColor = true;
-			this.createReminderBtn.Click += new System.EventHandler(this.createReminderBtn_Click);
+			this.createReminder_btn.Location = new System.Drawing.Point(85, 50);
+			this.createReminder_btn.Name = "createReminder_btn";
+			this.createReminder_btn.Size = new System.Drawing.Size(103, 23);
+			this.createReminder_btn.TabIndex = 0;
+			this.createReminder_btn.Text = "Create Reminder";
+			this.createReminder_btn.UseVisualStyleBackColor = true;
+			this.createReminder_btn.Click += new System.EventHandler(this.createReminderBtn_Click);
 			// 
 			// createReminder_group
 			// 
+			this.createReminder_group.Controls.Add(this.submitReminder_btn);
 			this.createReminder_group.Controls.Add(this.createReminder_dateTimePicker);
 			this.createReminder_group.Controls.Add(this.remindInMorning_btn);
 			this.createReminder_group.Controls.Add(this.remindIn6Hours_btn);
@@ -62,7 +64,7 @@ namespace ForgetMeNot
 			this.createReminder_group.Controls.Add(this.createReminder_text);
 			this.createReminder_group.Location = new System.Drawing.Point(38, 79);
 			this.createReminder_group.Name = "createReminder_group";
-			this.createReminder_group.Size = new System.Drawing.Size(200, 165);
+			this.createReminder_group.Size = new System.Drawing.Size(200, 189);
 			this.createReminder_group.TabIndex = 1;
 			this.createReminder_group.TabStop = false;
 			this.createReminder_group.Text = "Reminder Details";
@@ -70,11 +72,13 @@ namespace ForgetMeNot
 			// 
 			// createReminder_dateTimePicker
 			// 
-			this.createReminder_dateTimePicker.CustomFormat = "MM/dd/yy @ hh:mm tt";
+			this.createReminder_dateTimePicker.CustomFormat = "MM/dd/yyyy @ hh:mm tt";
 			this.createReminder_dateTimePicker.Location = new System.Drawing.Point(6, 136);
+			this.createReminder_dateTimePicker.MinDate = new System.DateTime(2022, 1, 11, 0, 0, 0, 0);
 			this.createReminder_dateTimePicker.Name = "createReminder_dateTimePicker";
 			this.createReminder_dateTimePicker.Size = new System.Drawing.Size(188, 20);
 			this.createReminder_dateTimePicker.TabIndex = 3;
+			this.createReminder_dateTimePicker.Value = new System.DateTime(2022, 1, 11, 0, 0, 0, 0);
 			// 
 			// remindInMorning_btn
 			// 
@@ -134,6 +138,16 @@ namespace ForgetMeNot
 			this.createReminder_text.Size = new System.Drawing.Size(188, 40);
 			this.createReminder_text.TabIndex = 0;
 			// 
+			// submitReminder_btn
+			// 
+			this.submitReminder_btn.Location = new System.Drawing.Point(60, 160);
+			this.submitReminder_btn.Name = "submitReminder_btn";
+			this.submitReminder_btn.Size = new System.Drawing.Size(75, 23);
+			this.submitReminder_btn.TabIndex = 6;
+			this.submitReminder_btn.Text = "Remind me!";
+			this.submitReminder_btn.UseVisualStyleBackColor = true;
+			this.submitReminder_btn.Click += new System.EventHandler(this.submitReminder_btn_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,7 +155,7 @@ namespace ForgetMeNot
 			this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.createReminder_group);
-			this.Controls.Add(this.createReminderBtn);
+			this.Controls.Add(this.createReminder_btn);
 			this.Name = "MainForm";
 			this.Text = "Forget me Not!";
 			this.createReminder_group.ResumeLayout(false);
@@ -152,7 +166,7 @@ namespace ForgetMeNot
 
 		#endregion
 
-		private System.Windows.Forms.Button createReminderBtn;
+		private System.Windows.Forms.Button createReminder_btn;
 		private System.Windows.Forms.GroupBox createReminder_group;
 		private System.Windows.Forms.TextBox createReminder_text;
 		private System.Windows.Forms.Button remindIn30Minutes_btn;
@@ -161,6 +175,7 @@ namespace ForgetMeNot
 		private System.Windows.Forms.Button remindIn1Hour_btn;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.DateTimePicker createReminder_dateTimePicker;
+		private System.Windows.Forms.Button submitReminder_btn;
 	}
 }
 

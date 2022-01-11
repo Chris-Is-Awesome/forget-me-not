@@ -20,10 +20,17 @@ namespace ForgetMeNot
 
 		private void ShowReminderCreateGroup()
 		{
+			// Show group & hide initial button
+			createReminder_btn.Visible = false;
 			createReminder_group.Visible = true;
 
+			// Set custom format for date time picker
 			remindTimePicker = createReminder_dateTimePicker;
 			remindTimePicker.Format = DateTimePickerFormat.Custom;
+
+			// Set start time to be 1 hour ahead of current time
+			remindTimePicker.MinDate = DateTime.Now;
+			remindTimePicker.Value = remindTimePicker.MinDate.AddHours(1);
 		}
 
 		private void remindIn30Minutes_btn_Click(object sender, EventArgs e)
@@ -56,6 +63,11 @@ namespace ForgetMeNot
 				// Set time to morning
 				remindTimePicker.Value = remindTimePicker.Value.Date + new TimeSpan(morningHour, 0, 0);
 			}
+		}
+
+		private void submitReminder_btn_Click(object sender, EventArgs e)
+		{
+			//
 		}
 	}
 }
