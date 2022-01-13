@@ -74,12 +74,27 @@ namespace ForgetMeNot
 			DateTime reminder_time = remindTime.Value;
 			bool reminder_allowSnoozing = true;
 
-			// Create reminder
-			reminderHandler.CreateNewReminder(reminder_message, reminder_time, reminder_allowSnoozing);
+			// Validate user input to ensure reminder message isn't empty
+			if  (string.IsNullOrEmpty(reminder_message))
+			{
+				PopupForm form = new PopupForm("There is no message for the reminder. Is it supposed to tell you to do nothing?", "Oopsie!");
+				form.ShowDialog();
+			}
+			// Validate user input to ensure reminder time is not a past time
+			else if (remindTime.Value < DateTime.Now)
+			{
+				PopupForm form = new PopupForm("The time set for reminder has already passed. You must select a future time, ya goof!", "Whoops!");
+				form.ShowDialog();
+			}
+			else
+			{
+				// Create reminder
+				reminderHandler.CreateNewReminder(reminder_message, reminder_time, reminder_allowSnoozing);
 
-			// Close create reminder group & show the button to create another
-			createReminder_group.Visible = false;
-			createReminder_btn.Visible = true;
+				// Close create reminder group & show the button to create another
+				createReminder_group.Visible = false;
+				createReminder_btn.Visible = true;
+			}
 		}
 	}
 }
