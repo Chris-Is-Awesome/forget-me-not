@@ -16,3 +16,6 @@ Reminders, notes, to-do list, anything to help keep your life organized.
 ### Tuesday, 1/11/22
 * 10:20: Add functionality to the "remind me in..." buttons to update the reminder time with the set intervals
 * 11:50-1:30: Attempt to prevent user from setting reminder time to a past time, unfinished, need to learn more about how additional forms work
+
+### Thursday, 1/13/22
+* 9:20: Create reminders using data from form and store them in a list

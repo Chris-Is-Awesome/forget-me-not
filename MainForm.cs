@@ -5,6 +5,8 @@ namespace ForgetMeNot
 {
 	public partial class MainForm : Form
 	{
+		Reminder reminderHandler = new Reminder();
+
 		public MainForm()
 		{
 			InitializeComponent();
@@ -67,7 +69,17 @@ namespace ForgetMeNot
 
 		private void submitReminder_btn_Click(object sender, EventArgs e)
 		{
-			//
+			// Read reminder data
+			string reminder_message = createReminder_text.Text;
+			DateTime reminder_time = remindTimePicker.Value;
+			bool reminder_allowSnoozing = true;
+
+			// Create reminder
+			reminderHandler.CreateNewReminder(reminder_message, reminder_time, reminder_allowSnoozing);
+
+			// Close create reminder group & show the button to create another
+			createReminder_group.Visible = false;
+			createReminder_btn.Visible = true;
 		}
 	}
 }
