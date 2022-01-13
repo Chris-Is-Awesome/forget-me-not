@@ -18,4 +18,4 @@ Reminders, notes, to-do list, anything to help keep your life organized.
 * 11:50-1:30: Attempt to prevent user from setting reminder time to a past time, unfinished, need to learn more about how additional forms work
 
 ### Thursday, 1/13/22
-* 9:20: Create reminders using data from form and store them in a list
+* 9:20-9:55: Create reminders using data from form and store them in a list
