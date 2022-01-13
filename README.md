@@ -19,3 +19,4 @@ Reminders, notes, to-do list, anything to help keep your life organized.
 
 ### Thursday, 1/13/22
 * 9:20-9:55: Create reminders using data from form and store them in a list
+* 10:00-10:10: Some form/code cleanup
