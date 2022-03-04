@@ -25,3 +25,12 @@ Reminders, notes, to-do list, anything to help keep your life organized.
 * 9:20 - 9:55: Create reminders using data from form and store them in a list
 * 10:00 - 10:10: Some form/code cleanup
 * 10:10 - 11:50: Add popups for form validation/error handling; formatting improvements
+
+### Wednesday, 3/2/22
+* 2:00 - 4:00: Research databases and the best way to handle them
+
+### Thursday, 3/3/22
+* 9:00 - 12:00: Continued research from yesterday & start practice project with SQLite
+
+### Friday, 3/4/22
+* 1:00 - 4:00: Continued practice project with SQLite and looked into potential libraries to use
