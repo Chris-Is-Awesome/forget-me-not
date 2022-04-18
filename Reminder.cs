@@ -5,7 +5,6 @@ namespace ForgetMeNot
 {
 	class Reminder
 	{
-		// Look at https://www.tutorialsteacher.com/csharp/csharp-struct for more info on stuff like events in structs
 		struct ReminderData
 		{
 			public string Message { get; set; }

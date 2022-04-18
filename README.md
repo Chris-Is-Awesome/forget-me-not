@@ -1,5 +1,5 @@
 # Forget me Not!
-Reminders, notes, to-do list, anything to help keep your life organized.
+Reminders, notes, to-do list, anything to help keep your life organized!
 
 ## To-do:
 * Convert reminder time to UTC when saving them to database
@@ -10,27 +10,32 @@ Reminders, notes, to-do list, anything to help keep your life organized.
 * Ability to delete reminders
 
 ## Log
-*Timestamps are when task started*
+*Timestamps are from when task started to when it ended*
 
 ### Monday, 1/10/22
-* 9:30: Troubleshoot project creation & gitignore
-* 10:00: Some cleanup & code setup; hook first button to Reminder class
-* 10:50 - 12:00: Show create reminder group when reminder button clicked; experimented with date/time inputs
+- 9:30: Troubleshoot project creation & gitignore
+- 10:00: Some cleanup & code setup; hook first button to Reminder class
+- 10:50 - 12:00: Show create reminder group when reminder button clicked; experimented with date/time inputs
 
 ### Tuesday, 1/11/22
-* 10:20: Add functionality to the "remind me in..." buttons to update the reminder time with the set intervals
-* 11:50 - 1:30: Attempt to prevent user from setting reminder time to a past time, unfinished, need to learn more about how additional forms work
+- 10:20: Add functionality to the "remind me in..." buttons to update the reminder time with the set intervals
+- 11:50 - 1:30: Attempt to prevent user from setting reminder time to a past time, unfinished, need to learn more about how additional forms work
 
 ### Thursday, 1/13/22
-* 9:20 - 9:55: Create reminders using data from form and store them in a list
-* 10:00 - 10:10: Some form/code cleanup
-* 10:10 - 11:50: Add popups for form validation/error handling; formatting improvements
+- 9:20 - 9:55: Create reminders using data from form and store them in a list
+- 10:00 - 10:10: Some form/code cleanup
+- 10:10 - 11:50: Add popups for form validation/error handling; formatting improvements
 
 ### Wednesday, 3/2/22
-* 2:00 - 4:00: Research databases and the best way to handle them
+- 2:00 - 4:00: Research databases and the best way to handle them
 
 ### Thursday, 3/3/22
-* 9:00 - 12:00: Continued research from yesterday & start practice project with SQLite
+- 9:00 - 12:00: Continued research from yesterday & start practice project with SQLite
 
 ### Friday, 3/4/22
-* 1:00 - 4:00: Continued practice project with SQLite and looked into potential libraries to use
+- 1:00 - 4:00: Continued practice project with SQLite and looked into potential libraries to use
+
+### Monday, 4/18/22
+- 9:30 - 10:00: Install & configure VS 2022 since it has some features I'll need, and I want to be up to date anyways.
+- 10:00 - 11:00: Minor cleanup; get a better understanding of using VS debug & diagnostic tools. Very cool! (https://youtu.be/sACkw915kmg)
+- 11:00 - 12:00: Planning on form layout & how to implement SQLite
