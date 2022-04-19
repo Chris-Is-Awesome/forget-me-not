@@ -39,3 +39,6 @@ Reminders, notes, to-do list, anything to help keep your life organized!
 - 9:30 - 10:00: Install & configure VS 2022 since it has some features I'll need, and I want to be up to date anyways.
 - 10:00 - 11:00: Minor cleanup; get a better understanding of using VS debug & diagnostic tools. Very cool! (https://youtu.be/sACkw915kmg)
 - 11:00 - 12:00: Planning on form layout & how to implement SQLite
+
+### Tuesday, 4/19/22
+- 9:15 - 12:00: Continue looking into how to implement database stuff... I think I might finally be onto something (https://www.youtube.com/watch?v=wvFC_60FR7c & https://www.youtube.com/watch?v=d6BTfwmK-S4)
