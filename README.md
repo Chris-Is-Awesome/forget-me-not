@@ -42,3 +42,7 @@ Reminders, notes, to-do list, anything to help keep your life organized!
 
 ### Tuesday, 4/19/22
 - 9:15 - 12:00: Continue looking into how to implement database stuff... I think I might finally be onto something (https://www.youtube.com/watch?v=wvFC_60FR7c & https://www.youtube.com/watch?v=d6BTfwmK-S4)
+
+### Wednesday, 4/20/22
+- 1:30 - 2:00: Got loading data from SQL database working! More SQL stuff needed, but want to work on somme design first so I can more easily test things.
+- 2:00 - 4:00: Do more planning & work on the layout of the program.

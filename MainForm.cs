@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ForgetMeNot
@@ -6,6 +7,7 @@ namespace ForgetMeNot
 	public partial class MainForm : Form
 	{
 		Reminder reminderHandler = new Reminder();
+		DatabaseHandler databaseHandler = new DatabaseHandler();
 
 		public MainForm()
 		{
@@ -96,5 +98,12 @@ namespace ForgetMeNot
 				createReminder_btn.Visible = true;
 			}
 		}
-	}
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+			remindersList.DisplayMember = "Message";
+			remindersList.ValueMember = "Id";
+			remindersList.DataSource = databaseHandler.LoadDatabase();
+		}
+    }
 }

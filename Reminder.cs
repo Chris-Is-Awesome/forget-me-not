@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace ForgetMeNot
 {
@@ -12,7 +13,12 @@ namespace ForgetMeNot
 			public bool SnoozingAllowed { get; set; }
 		}
 
-		List<ReminderData> allReminders = new List<ReminderData>();
+		private static List<ReminderData> allReminders = new List<ReminderData>();
+
+		public static void LoadReminders(DataTable table)
+        {
+			//
+        }
 
 		public void CreateNewReminder(string message, DateTime time, bool snoozingAllowed)
 		{
