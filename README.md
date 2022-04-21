@@ -46,3 +46,8 @@ Reminders, notes, to-do list, anything to help keep your life organized!
 ### Wednesday, 4/20/22
 - 1:30 - 2:00: Got loading data from SQL database working! More SQL stuff needed, but want to work on somme design first so I can more easily test things.
 - 2:00 - 4:00: Do more planning & work on the layout of the program.
+
+### Thursday, 4/21/22
+- 9:20 - 10:30: Successfully fill some visual elements with data from database, not exactly how I want it though, so needs more work.
+- 10:30 - 12:00: Play around with front end to get database viewing more how I want, still far from where I want it, but getting there.
+- 

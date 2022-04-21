@@ -101,9 +101,14 @@ namespace ForgetMeNot
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-			remindersList.DisplayMember = "Message";
-			remindersList.ValueMember = "Id";
-			remindersList.DataSource = databaseHandler.LoadDatabase();
+			var reminders = reminderHandler.LoadReminders();
+			remindersList.DataSource = reminders;
+
+			for (int i = 0; i < reminders.Count; i++)
+            {
+				remindersList.DisplayMember = "Message";
+				remindersList.ValueMember = "Id";
+            }
 		}
     }
 }
