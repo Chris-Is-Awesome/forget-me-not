@@ -50,4 +50,6 @@ Reminders, notes, to-do list, anything to help keep your life organized!
 ### Thursday, 4/21/22
 - 9:20 - 10:30: Successfully fill some visual elements with data from database, not exactly how I want it though, so needs more work.
 - 10:30 - 12:00: Play around with front end to get database viewing more how I want, still far from where I want it, but getting there.
-- 
+
+### Friday, 4/22/22
+- 9:15 - 1:30: Ugh. Got reminders going to the list I want, was pain and agony... VS SQL support sucks, don't use it.

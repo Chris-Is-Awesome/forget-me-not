@@ -35,7 +35,7 @@ namespace ForgetMeNot
 				string message = row["Message"].ToString();
 				//DateTime time = DateTime.Parse(row["Time"].ToString());
 				DateTime time = DateTime.Now;
-				bool allowSnoozing = bool.Parse(row["AllowSnoozing"].ToString());
+				bool allowSnoozing = bool.Parse(row["SnoozingAllowed"].ToString());
 				ReminderData reminder = new ReminderData(i, message, time, allowSnoozing);
 				allReminders.Add(reminder);
 

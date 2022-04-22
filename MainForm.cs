@@ -99,16 +99,41 @@ namespace ForgetMeNot
 			}
 		}
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
+		private void MainForm_Load(object sender, EventArgs e)
+		{
 			var reminders = reminderHandler.LoadReminders();
-			remindersList.DataSource = reminders;
+			int spaceBetweenEachReminder = 60;
 
 			for (int i = 0; i < reminders.Count; i++)
-            {
-				remindersList.DisplayMember = "Message";
-				remindersList.ValueMember = "Id";
-            }
+			{
+				spaceBetweenEachReminder += -60;
+				string reminderMsg = reminders[i].Message.ToString();
+
+				// Create button
+				ComponentHelper.ButtonData buttonData = new ComponentHelper.ButtonData
+				{
+					BackgroundColor = Color.Gray,
+					TextColor = Color.Black,
+					FlatStyle = FlatStyle.Flat,
+					Name = $"reminderBtn_{i + 1}",
+					Text = $"{reminderMsg}\nReminds me at: NULL",
+					TextAlign = ContentAlignment.MiddleCenter,
+					Location = new Point(1, 19 - spaceBetweenEachReminder),
+					Size = new Size(250, 55),
+					Callback = OnReminderButtonClick
+				};
+
+				// Add button to controls
+				Button button = ComponentHelper.CreateButton(buttonData);
+				reminders_panel.Controls.Add(button);
+			}
+		}
+
+		// When reminder button is clicked, show details and edit/delete options
+		private void OnReminderButtonClick(object sender, EventArgs e)
+		{
+			Button button = (Button)sender;
+			Console.WriteLine(button.Name);
 		}
     }
 }

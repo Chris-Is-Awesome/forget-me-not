@@ -40,15 +40,11 @@ namespace ForgetMeNot
             this.time_header = new System.Windows.Forms.Label();
             this.createReminderGroup_remindIn30Minutes_btn = new System.Windows.Forms.Button();
             this.createReminderGroup_reminderMessage = new System.Windows.Forms.TextBox();
-            this.remindersList = new System.Windows.Forms.ListBox();
             this.reminders_group = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.reminders_panel = new System.Windows.Forms.Panel();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.createReminder_group.SuspendLayout();
-            this.reminders_group.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.reminders_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // createReminder_btn
@@ -193,18 +189,8 @@ namespace ForgetMeNot
             this.createReminderGroup_reminderMessage.Size = new System.Drawing.Size(188, 40);
             this.createReminderGroup_reminderMessage.TabIndex = 0;
             // 
-            // remindersList
-            // 
-            this.remindersList.DisplayMember = "hi";
-            this.remindersList.FormattingEnabled = true;
-            this.remindersList.Location = new System.Drawing.Point(365, 335);
-            this.remindersList.Name = "remindersList";
-            this.remindersList.Size = new System.Drawing.Size(336, 95);
-            this.remindersList.TabIndex = 2;
-            // 
             // reminders_group
             // 
-            this.reminders_group.Controls.Add(this.panel1);
             this.reminders_group.Location = new System.Drawing.Point(12, 12);
             this.reminders_group.Name = "reminders_group";
             this.reminders_group.Size = new System.Drawing.Size(280, 362);
@@ -212,54 +198,21 @@ namespace ForgetMeNot
             this.reminders_group.TabStop = false;
             this.reminders_group.Text = "Reminders";
             // 
-            // label1
+            // reminders_panel
             // 
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Location = new System.Drawing.Point(0, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 2);
-            this.label1.TabIndex = 10;
+            this.reminders_panel.BackColor = System.Drawing.Color.Transparent;
+            this.reminders_panel.Controls.Add(this.vScrollBar1);
+            this.reminders_panel.Location = new System.Drawing.Point(18, 25);
+            this.reminders_panel.Name = "reminders_panel";
+            this.reminders_panel.Size = new System.Drawing.Size(268, 343);
+            this.reminders_panel.TabIndex = 0;
             // 
-            // button1
+            // vScrollBar1
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(263, 59);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Reminds... tomorrow at 2 pm";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.DimGray;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox1.Location = new System.Drawing.Point(4, 6);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(256, 26);
-            this.textBox1.TabIndex = 13;
-            this.textBox1.Text = "Take out the trash and recycling, and do vacuuming. REEEEEEEEEEEEEEEEEEEEEEEEEEEE" +
-    "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(11, 19);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(263, 59);
-            this.panel1.TabIndex = 14;
+            this.vScrollBar1.Location = new System.Drawing.Point(256, 0);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(12, 343);
+            this.vScrollBar1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -267,8 +220,8 @@ namespace ForgetMeNot
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(734, 442);
+            this.Controls.Add(this.reminders_panel);
             this.Controls.Add(this.reminders_group);
-            this.Controls.Add(this.remindersList);
             this.Controls.Add(this.createReminder_group);
             this.Controls.Add(this.createReminder_btn);
             this.Name = "MainForm";
@@ -276,9 +229,7 @@ namespace ForgetMeNot
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.createReminder_group.ResumeLayout(false);
             this.createReminder_group.PerformLayout();
-            this.reminders_group.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.reminders_panel.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -296,12 +247,9 @@ namespace ForgetMeNot
 		private System.Windows.Forms.DateTimePicker createReminderGroup_remindTime;
 		private System.Windows.Forms.Button createReminderGroup_submitReminder_btn;
 		private System.Windows.Forms.Label message_header;
-        private System.Windows.Forms.ListBox remindersList;
         private System.Windows.Forms.GroupBox reminders_group;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel reminders_panel;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
     }
 }
 
