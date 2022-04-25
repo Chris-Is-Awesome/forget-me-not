@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace ForgetMeNot
@@ -20,6 +19,9 @@ namespace ForgetMeNot
 
 		private void ShowCreateReminderPanel()
 		{
+			// Reparent create reminder panel because VS is bad
+			createReminder_panel.Parent = right_group;
+
 			// Toggle panels
 			createReminder_panel.Visible = true;
 			reminderDetails_panel.Visible = false;
@@ -145,5 +147,25 @@ namespace ForgetMeNot
 			else
 				Console.WriteLine($"Something went wrong! Button {button.Name} did not return ReminderData!");
 		}
+
+        private void reminderDetails_editBtn_Click(object sender, EventArgs e)
+        {
+			// TODO: Edit
+        }
+
+        private void reminderDetails_copyBtn_Click(object sender, EventArgs e)
+        {
+			// TODO: Copy
+        }
+
+        private void reminderDetails_deleteBtn_Click(object sender, EventArgs e)
+        {
+			// TODO: Delete
+        }
+
+        private void reminderDetails_goBackBtn_Click(object sender, EventArgs e)
+        {
+			ShowCreateReminderPanel();
+        }
     }
 }

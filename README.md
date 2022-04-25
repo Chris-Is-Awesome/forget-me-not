@@ -55,4 +55,5 @@ Reminders, notes, to-do list, anything to help keep your life organized!
 - 9:15 - 1:30: Ugh. Got reminders going to the list I want, was pain and agony... VS SQL support sucks, don't use it.
 
 ### Monday, 4/25/22
-- 1:00 - 
+- 1:00 - 2:00: Update front end to add right panel to show either create reminder or reminder details.
+- 2:00 - 4:00: Merged big PR; show more reminder details when reminder button is clicked. VS form designer is bad, don't use it.
