@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31729.503
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forget me Not", "Forget me Not.csproj", "{F5F4186B-246A-4AA1-8BF5-ED3046D4C302}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForgetMeNot", "ForgetMeNot.csproj", "{F5F4186B-246A-4AA1-8BF5-ED3046D4C302}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
