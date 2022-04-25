@@ -53,3 +53,6 @@ Reminders, notes, to-do list, anything to help keep your life organized!
 
 ### Friday, 4/22/22
 - 9:15 - 1:30: Ugh. Got reminders going to the list I want, was pain and agony... VS SQL support sucks, don't use it.
+
+### Monday, 4/25/22
+- 1:00 - 

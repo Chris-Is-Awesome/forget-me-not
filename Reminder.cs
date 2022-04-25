@@ -6,24 +6,26 @@ namespace ForgetMeNot
 {
 	class Reminder
 	{
-		public struct ReminderData
-        {
+		public class ReminderData
+		{
 			public int Id { get; }
 			public string Message { get; }
 			public DateTime Time { get; }
 			public bool SnoozingAllowed { get; }
 
 			public ReminderData(int id, string message, DateTime time, bool snoozingAllowed)
-            {
+			{
 				Id = id;
 				Message = message;
 				Time = time;
 				SnoozingAllowed = snoozingAllowed;
-            }
+			}
 		}
 
 		private readonly DatabaseHandler databaseHandler = new DatabaseHandler();
-		private readonly List<ReminderData> allReminders = new List<ReminderData>();
+		private readonly List<ReminderData> _allReminders = new List<ReminderData>();
+
+		public List<ReminderData> Reminders { get { return _allReminders; } }
 
 		public List<ReminderData> LoadReminders()
         {
@@ -37,21 +39,21 @@ namespace ForgetMeNot
 				DateTime time = DateTime.Now;
 				bool allowSnoozing = bool.Parse(row["SnoozingAllowed"].ToString());
 				ReminderData reminder = new ReminderData(i, message, time, allowSnoozing);
-				allReminders.Add(reminder);
+				_allReminders.Add(reminder);
 
 				Console.WriteLine($"Loaded reminder: {message.Trim()}");
 			}
 
-			return allReminders;
+			return _allReminders;
         }
 
 		public void CreateNewReminder(string message, DateTime time, bool snoozingAllowed)
 		{
 			// Create new reminder
-			ReminderData newReminder = new ReminderData(allReminders.Count + 1, message, time, snoozingAllowed);
+			ReminderData newReminder = new ReminderData(_allReminders.Count + 1, message, time, snoozingAllowed);
 
 			// Add reminder to list of active reminders
-			allReminders.Add(newReminder);
+			_allReminders.Add(newReminder);
 
 			// TODO: Add to database so it persists through sessions
 			Console.WriteLine("Reminder created! Time to add it to a database!");

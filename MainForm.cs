@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ForgetMeNot
@@ -12,21 +13,17 @@ namespace ForgetMeNot
 		public MainForm()
 		{
 			InitializeComponent();
-		}
-
-		private void createReminderBtn_Click(object sender, EventArgs e)
-		{
-			Console.WriteLine("Create reminder button clicked!");
-			ShowCreateReminderGroup();
+			ShowCreateReminderPanel();
 		}
 
 		DateTimePicker remindTime;
 
-		private void ShowCreateReminderGroup()
+		private void ShowCreateReminderPanel()
 		{
-			// Show group & hide initial button
-			createReminder_btn.Visible = false;
-			createReminder_group.Visible = true;
+			// Toggle panels
+			createReminder_panel.Visible = true;
+			reminderDetails_panel.Visible = false;
+			right_group.Text = "Create reminder";
 
 			// Set custom format for date time picker
 			remindTime = createReminderGroup_remindTime;
@@ -35,6 +32,17 @@ namespace ForgetMeNot
 			// Set start time to be 1 hour ahead of current time
 			remindTime.MinDate = DateTime.Now;
 			remindTime.Value = remindTime.MinDate.AddHours(1);
+		}
+
+		private void ShowReminderDetailsPanel(Reminder.ReminderData reminder)
+        {
+			// Toggle panels
+			createReminder_panel.Visible = false;
+			reminderDetails_panel.Visible = true;
+			right_group.Text = "Reminder details";
+
+			// Show reminder details
+			reminderDetails_message.Text = reminder.Message;
 		}
 
 		private void remindIn30Minutes_btn_Click(object sender, EventArgs e)
@@ -92,10 +100,6 @@ namespace ForgetMeNot
 			{
 				// Create reminder
 				reminderHandler.CreateNewReminder(reminder_message, reminder_time, reminder_allowSnoozing);
-
-				// Close create reminder group & show the button to create another
-				createReminder_group.Visible = false;
-				createReminder_btn.Visible = true;
 			}
 		}
 
@@ -115,8 +119,8 @@ namespace ForgetMeNot
 					BackgroundColor = Color.Gray,
 					TextColor = Color.Black,
 					FlatStyle = FlatStyle.Flat,
-					Name = $"reminderBtn_{i + 1}",
-					Text = $"{reminderMsg}\nReminds me at: NULL",
+					Name = $"reminderBtn_{i}",
+					Text = $"{reminderMsg}\nReminds me at: {reminders[i].Time}",
 					TextAlign = ContentAlignment.MiddleCenter,
 					Location = new Point(1, 19 - spaceBetweenEachReminder),
 					Size = new Size(250, 55),
@@ -125,7 +129,7 @@ namespace ForgetMeNot
 
 				// Add button to controls
 				Button button = ComponentHelper.CreateButton(buttonData);
-				reminders_panel.Controls.Add(button);
+				left_panel.Controls.Add(button);
 			}
 		}
 
@@ -133,7 +137,13 @@ namespace ForgetMeNot
 		private void OnReminderButtonClick(object sender, EventArgs e)
 		{
 			Button button = (Button)sender;
-			Console.WriteLine(button.Name);
+			int id = int.Parse(button.Name[button.Name.Length - 1].ToString());
+			Reminder.ReminderData reminder = reminderHandler.Reminders.Find(x => x.Id == id);
+
+			if (reminder != null)
+				ShowReminderDetailsPanel(reminder);
+			else
+				Console.WriteLine($"Something went wrong! Button {button.Name} did not return ReminderData!");
 		}
     }
 }
