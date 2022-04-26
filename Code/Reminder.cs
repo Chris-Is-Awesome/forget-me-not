@@ -6,25 +6,21 @@ namespace ForgetMeNot
 {
 	class Reminder
 	{
-		public class ReminderData
-		{
-			public int Id { get; }
-			public string Message { get; }
-			public DateTime Time { get; }
-			public bool SnoozingAllowed { get; }
+		private Reminder() { }
 
-			public ReminderData(int id, string message, DateTime time, bool snoozingAllowed)
-			{
-				Id = id;
-				Message = message;
-				Time = time;
-				SnoozingAllowed = snoozingAllowed;
-			}
-		}
-
+		private static Reminder _instance;
 		private readonly DatabaseHandler databaseHandler = new DatabaseHandler();
 		private readonly List<ReminderData> _allReminders = new List<ReminderData>();
 
+		public static Reminder Instance
+        {
+			get
+            {
+				if (_instance == null)
+					_instance = new Reminder();
+				return _instance;
+            }
+        }
 		public List<ReminderData> Reminders { get { return _allReminders; } }
 
 		public List<ReminderData> LoadReminders()
@@ -57,6 +53,22 @@ namespace ForgetMeNot
 
 			// TODO: Add to database so it persists through sessions
 			Console.WriteLine("Reminder created! Time to add it to a database!");
+		}
+
+		public class ReminderData
+		{
+			public int Id { get; }
+			public string Message { get; }
+			public DateTime Time { get; }
+			public bool SnoozingAllowed { get; }
+
+			public ReminderData(int id, string message, DateTime time, bool snoozingAllowed)
+			{
+				Id = id;
+				Message = message;
+				Time = time;
+				SnoozingAllowed = snoozingAllowed;
+			}
 		}
 	}
 }

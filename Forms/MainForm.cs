@@ -6,9 +6,6 @@ namespace ForgetMeNot
 {
 	public partial class MainForm : Form
 	{
-		Reminder reminderHandler = new Reminder();
-		DatabaseHandler databaseHandler = new DatabaseHandler();
-
 		public MainForm()
 		{
 			InitializeComponent();
@@ -101,13 +98,13 @@ namespace ForgetMeNot
 			else
 			{
 				// Create reminder
-				reminderHandler.CreateNewReminder(reminder_message, reminder_time, reminder_allowSnoozing);
+				Reminder.Instance.CreateNewReminder(reminder_message, reminder_time, reminder_allowSnoozing);
 			}
 		}
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-			var reminders = reminderHandler.LoadReminders();
+			var reminders = Reminder.Instance.LoadReminders();
 			int spaceBetweenEachReminder = 60;
 
 			for (int i = 0; i < reminders.Count; i++)
@@ -140,7 +137,7 @@ namespace ForgetMeNot
 		{
 			Button button = (Button)sender;
 			int id = int.Parse(button.Name[button.Name.Length - 1].ToString());
-			Reminder.ReminderData reminder = reminderHandler.Reminders.Find(x => x.Id == id);
+			Reminder.ReminderData reminder = Reminder.Instance.Reminders.Find(x => x.Id == id);
 
 			if (reminder != null)
 				ShowReminderDetailsPanel(reminder);

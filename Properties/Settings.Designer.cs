@@ -26,11 +26,11 @@ namespace ForgetMeNot.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\dbReminders.m" +
-            "df;Integrated Security=True")]
-        public string dbRemindersConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Data\\reminder" +
+            "Data.mdf;Integrated Security=True")]
+        public string reminderDataConnectionString {
             get {
-                return ((string)(this["dbRemindersConnectionString"]));
+                return ((string)(this["reminderDataConnectionString"]));
             }
         }
     }

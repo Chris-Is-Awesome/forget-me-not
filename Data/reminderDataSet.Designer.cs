@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace ForgetMeNot {
+namespace ForgetMeNot.Data {
     
     
     /// <summary>
@@ -20,9 +20,9 @@ namespace ForgetMeNot {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("dbRemindersDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("reminderDataDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class dbRemindersDataSet : global::System.Data.DataSet {
+    public partial class reminderDataDataSet : global::System.Data.DataSet {
         
         private tbl_RemindersDataTable tabletbl_Reminders;
         
@@ -30,7 +30,7 @@ namespace ForgetMeNot {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public dbRemindersDataSet() {
+        public reminderDataDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace ForgetMeNot {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected dbRemindersDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected reminderDataDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace ForgetMeNot {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            dbRemindersDataSet cln = ((dbRemindersDataSet)(base.Clone()));
+            reminderDataDataSet cln = ((reminderDataDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace ForgetMeNot {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "dbRemindersDataSet";
+            this.DataSetName = "reminderDataDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/dbRemindersDataSet.xsd";
+            this.Namespace = "http://tempuri.org/reminderDataDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tabletbl_Reminders = new tbl_RemindersDataTable();
@@ -225,7 +225,7 @@ namespace ForgetMeNot {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            dbRemindersDataSet ds = new dbRemindersDataSet();
+            reminderDataDataSet ds = new reminderDataDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -285,7 +285,7 @@ namespace ForgetMeNot {
             
             private global::System.Data.DataColumn columnTime;
             
-            private global::System.Data.DataColumn columnAllowSnoozing;
+            private global::System.Data.DataColumn columnSnoozingAllowed;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -346,9 +346,9 @@ namespace ForgetMeNot {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn AllowSnoozingColumn {
+            public global::System.Data.DataColumn SnoozingAllowedColumn {
                 get {
-                    return this.columnAllowSnoozing;
+                    return this.columnSnoozingAllowed;
                 }
             }
             
@@ -389,13 +389,13 @@ namespace ForgetMeNot {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public tbl_RemindersRow Addtbl_RemindersRow(string Message, System.DateTime Time, bool AllowSnoozing) {
+            public tbl_RemindersRow Addtbl_RemindersRow(string Message, System.DateTime Time, bool SnoozingAllowed) {
                 tbl_RemindersRow rowtbl_RemindersRow = ((tbl_RemindersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Message,
                         Time,
-                        AllowSnoozing};
+                        SnoozingAllowed};
                 rowtbl_RemindersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbl_RemindersRow);
                 return rowtbl_RemindersRow;
@@ -428,7 +428,7 @@ namespace ForgetMeNot {
                 this.columnId = base.Columns["Id"];
                 this.columnMessage = base.Columns["Message"];
                 this.columnTime = base.Columns["Time"];
-                this.columnAllowSnoozing = base.Columns["AllowSnoozing"];
+                this.columnSnoozingAllowed = base.Columns["SnoozingAllowed"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -440,8 +440,8 @@ namespace ForgetMeNot {
                 base.Columns.Add(this.columnMessage);
                 this.columnTime = new global::System.Data.DataColumn("Time", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTime);
-                this.columnAllowSnoozing = new global::System.Data.DataColumn("AllowSnoozing", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAllowSnoozing);
+                this.columnSnoozingAllowed = new global::System.Data.DataColumn("SnoozingAllowed", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSnoozingAllowed);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -450,7 +450,7 @@ namespace ForgetMeNot {
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
-                this.columnMessage.MaxLength = 255;
+                this.columnMessage.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -518,7 +518,7 @@ namespace ForgetMeNot {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dbRemindersDataSet ds = new dbRemindersDataSet();
+                reminderDataDataSet ds = new reminderDataDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -636,17 +636,17 @@ namespace ForgetMeNot {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool AllowSnoozing {
+            public bool SnoozingAllowed {
                 get {
                     try {
-                        return ((bool)(this[this.tabletbl_Reminders.AllowSnoozingColumn]));
+                        return ((bool)(this[this.tabletbl_Reminders.SnoozingAllowedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AllowSnoozing\' in table \'tbl_Reminders\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SnoozingAllowed\' in table \'tbl_Reminders\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletbl_Reminders.AllowSnoozingColumn] = value;
+                    this[this.tabletbl_Reminders.SnoozingAllowedColumn] = value;
                 }
             }
             
@@ -676,14 +676,14 @@ namespace ForgetMeNot {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsAllowSnoozingNull() {
-                return this.IsNull(this.tabletbl_Reminders.AllowSnoozingColumn);
+            public bool IsSnoozingAllowedNull() {
+                return this.IsNull(this.tabletbl_Reminders.SnoozingAllowedColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetAllowSnoozingNull() {
-                this[this.tabletbl_Reminders.AllowSnoozingColumn] = global::System.Convert.DBNull;
+            public void SetSnoozingAllowedNull() {
+                this[this.tabletbl_Reminders.SnoozingAllowedColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -722,7 +722,7 @@ namespace ForgetMeNot {
         }
     }
 }
-namespace ForgetMeNot.dbRemindersDataSetTableAdapters {
+namespace ForgetMeNot.Data.reminderDataDataSetTableAdapters {
     
     
     /// <summary>
@@ -849,43 +849,42 @@ namespace ForgetMeNot.dbRemindersDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("Message", "Message");
             tableMapping.ColumnMappings.Add("Time", "Time");
-            tableMapping.ColumnMappings.Add("AllowSnoozing", "AllowSnoozing");
+            tableMapping.ColumnMappings.Add("SnoozingAllowed", "SnoozingAllowed");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[tbl_Reminders] WHERE (([Id] = @Original_Id) AND ((@IsNull_Message = 1 AND [Message] IS NULL) OR ([Message] = @Original_Message)) AND ((@IsNull_Time = 1 AND [Time] IS NULL) OR ([Time] = @Original_Time)) AND ((@IsNull_AllowSnoozing = 1 AND [AllowSnoozing] IS NULL) OR ([AllowSnoozing] = @Original_AllowSnoozing)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tbl_Reminders] WHERE (([Id] = @Original_Id) AND ((@IsNull_Time" +
+                " = 1 AND [Time] IS NULL) OR ([Time] = @Original_Time)) AND ((@IsNull_SnoozingAll" +
+                "owed = 1 AND [SnoozingAllowed] IS NULL) OR ([SnoozingAllowed] = @Original_Snoozi" +
+                "ngAllowed)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Message", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Message", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Message", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Message", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Time", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AllowSnoozing", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllowSnoozing", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AllowSnoozing", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllowSnoozing", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SnoozingAllowed", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SnoozingAllowed", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SnoozingAllowed", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SnoozingAllowed", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tbl_Reminders] ([Message], [Time], [AllowSnoozing]) VALUES (@M" +
-                "essage, @Time, @AllowSnoozing);\r\nSELECT Id, Message, Time, AllowSnoozing FROM tb" +
-                "l_Reminders WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tbl_Reminders] ([Message], [Time], [SnoozingAllowed]) VALUES (" +
+                "@Message, @Time, @SnoozingAllowed);\r\nSELECT Id, Message, Time, SnoozingAllowed F" +
+                "ROM tbl_Reminders WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Message", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Message", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Message", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Message", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AllowSnoozing", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllowSnoozing", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SnoozingAllowed", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SnoozingAllowed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[tbl_Reminders] SET [Message] = @Message, [Time] = @Time, [AllowSnoozing] = @AllowSnoozing WHERE (([Id] = @Original_Id) AND ((@IsNull_Message = 1 AND [Message] IS NULL) OR ([Message] = @Original_Message)) AND ((@IsNull_Time = 1 AND [Time] IS NULL) OR ([Time] = @Original_Time)) AND ((@IsNull_AllowSnoozing = 1 AND [AllowSnoozing] IS NULL) OR ([AllowSnoozing] = @Original_AllowSnoozing)));
-SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[tbl_Reminders] SET [Message] = @Message, [Time] = @Time, [SnoozingAllowed] = @SnoozingAllowed WHERE (([Id] = @Original_Id) AND ((@IsNull_Time = 1 AND [Time] IS NULL) OR ([Time] = @Original_Time)) AND ((@IsNull_SnoozingAllowed = 1 AND [SnoozingAllowed] IS NULL) OR ([SnoozingAllowed] = @Original_SnoozingAllowed)));
+SELECT Id, Message, Time, SnoozingAllowed FROM tbl_Reminders WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Message", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Message", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Message", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Message", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AllowSnoozing", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllowSnoozing", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SnoozingAllowed", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SnoozingAllowed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Message", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Message", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Message", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Message", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Time", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Time", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AllowSnoozing", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllowSnoozing", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AllowSnoozing", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AllowSnoozing", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SnoozingAllowed", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SnoozingAllowed", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SnoozingAllowed", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SnoozingAllowed", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -893,7 +892,7 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::ForgetMeNot.Properties.Settings.Default.dbRemindersConnectionString;
+            this._connection.ConnectionString = global::ForgetMeNot.Properties.Settings.Default.reminderDataConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -902,7 +901,7 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Message, Time, AllowSnoozing FROM dbo.tbl_Reminders";
+            this._commandCollection[0].CommandText = "SELECT Id, Message, Time, SnoozingAllowed FROM dbo.tbl_Reminders";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -910,7 +909,7 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dbRemindersDataSet.tbl_RemindersDataTable dataTable) {
+        public virtual int Fill(reminderDataDataSet.tbl_RemindersDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -923,9 +922,9 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dbRemindersDataSet.tbl_RemindersDataTable GetData() {
+        public virtual reminderDataDataSet.tbl_RemindersDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            dbRemindersDataSet.tbl_RemindersDataTable dataTable = new dbRemindersDataSet.tbl_RemindersDataTable();
+            reminderDataDataSet.tbl_RemindersDataTable dataTable = new reminderDataDataSet.tbl_RemindersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -933,14 +932,14 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dbRemindersDataSet.tbl_RemindersDataTable dataTable) {
+        public virtual int Update(reminderDataDataSet.tbl_RemindersDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(dbRemindersDataSet dataSet) {
+        public virtual int Update(reminderDataDataSet dataSet) {
             return this.Adapter.Update(dataSet, "tbl_Reminders");
         }
         
@@ -963,31 +962,23 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, string Original_Message, global::System.Nullable<global::System.DateTime> Original_Time, global::System.Nullable<bool> Original_AllowSnoozing) {
+        public virtual int Delete(int Original_Id, global::System.Nullable<global::System.DateTime> Original_Time, global::System.Nullable<bool> Original_SnoozingAllowed) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            if ((Original_Message == null)) {
+            if ((Original_Time.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_Time.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Message));
-            }
-            if ((Original_Time.HasValue == true)) {
+            if ((Original_SnoozingAllowed.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((System.DateTime)(Original_Time.Value));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((bool)(Original_SnoozingAllowed.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Original_AllowSnoozing.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((bool)(Original_AllowSnoozing.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1009,7 +1000,7 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Message, global::System.Nullable<global::System.DateTime> Time, global::System.Nullable<bool> AllowSnoozing) {
+        public virtual int Insert(string Message, global::System.Nullable<global::System.DateTime> Time, global::System.Nullable<bool> SnoozingAllowed) {
             if ((Message == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1022,8 +1013,8 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((AllowSnoozing.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(AllowSnoozing.Value));
+            if ((SnoozingAllowed.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((bool)(SnoozingAllowed.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -1048,7 +1039,7 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Message, global::System.Nullable<global::System.DateTime> Time, global::System.Nullable<bool> AllowSnoozing, int Original_Id, string Original_Message, global::System.Nullable<global::System.DateTime> Original_Time, global::System.Nullable<bool> Original_AllowSnoozing, int Id) {
+        public virtual int Update(string Message, global::System.Nullable<global::System.DateTime> Time, global::System.Nullable<bool> SnoozingAllowed, int Original_Id, global::System.Nullable<global::System.DateTime> Original_Time, global::System.Nullable<bool> Original_SnoozingAllowed, int Id) {
             if ((Message == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1061,38 +1052,30 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((AllowSnoozing.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(AllowSnoozing.Value));
+            if ((SnoozingAllowed.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((bool)(SnoozingAllowed.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Id));
-            if ((Original_Message == null)) {
+            if ((Original_Time.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Original_Time.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Message));
-            }
-            if ((Original_Time.HasValue == true)) {
+            if ((Original_SnoozingAllowed.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(Original_Time.Value));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(Original_SnoozingAllowed.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Original_AllowSnoozing.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((bool)(Original_AllowSnoozing.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Id));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1113,8 +1096,8 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Message, global::System.Nullable<global::System.DateTime> Time, global::System.Nullable<bool> AllowSnoozing, int Original_Id, string Original_Message, global::System.Nullable<global::System.DateTime> Original_Time, global::System.Nullable<bool> Original_AllowSnoozing) {
-            return this.Update(Message, Time, AllowSnoozing, Original_Id, Original_Message, Original_Time, Original_AllowSnoozing, Original_Id);
+        public virtual int Update(string Message, global::System.Nullable<global::System.DateTime> Time, global::System.Nullable<bool> SnoozingAllowed, int Original_Id, global::System.Nullable<global::System.DateTime> Original_Time, global::System.Nullable<bool> Original_SnoozingAllowed) {
+            return this.Update(Message, Time, SnoozingAllowed, Original_Id, Original_Time, Original_SnoozingAllowed, Original_Id);
         }
     }
     
@@ -1209,7 +1192,7 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(dbRemindersDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(reminderDataDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._tbl_RemindersTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.tbl_Reminders.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1228,7 +1211,7 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(dbRemindersDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(reminderDataDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._tbl_RemindersTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.tbl_Reminders.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1246,7 +1229,7 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(dbRemindersDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(reminderDataDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._tbl_RemindersTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.tbl_Reminders.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1288,7 +1271,7 @@ SELECT Id, Message, Time, AllowSnoozing FROM tbl_Reminders WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(dbRemindersDataSet dataSet) {
+        public virtual int UpdateAll(reminderDataDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

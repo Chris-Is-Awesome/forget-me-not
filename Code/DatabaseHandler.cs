@@ -9,7 +9,7 @@ namespace ForgetMeNot
 
 		public DataTable LoadDatabase()
 		{
-			string connectionStr = Properties.Settings.Default.dbRemindersConnectionString;
+			string connectionStr = Properties.Settings.Default.reminderDataConnectionString;
 			SqlConnection connection = new SqlConnection(connectionStr);
 
 			if (connection.State != ConnectionState.Open)
