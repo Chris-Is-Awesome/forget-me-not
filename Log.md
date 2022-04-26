@@ -2,24 +2,22 @@
 *Timestamps are from when task started to when it ended*
 
 <details>
-  <summary>Week 1</summary>
-  
-### Monday, 1/10/22
-- 9:30: Troubleshoot project creation & gitignore
-- 10:00: Some cleanup & code setup; hook first button to Reminder class
-- 10:50 - 12:00: Show create reminder group when reminder button clicked; experimented with date/time inputs
-### Tuesday, 1/11/22
-- 10:20: Add functionality to the "remind me in..." buttons to update the reminder time with the set intervals
-- 11:50 - 1:30: Attempt to prevent user from setting reminder time to a past time, unfinished, need to learn more about how additional forms work
-### Thursday, 1/13/22
-- 9:20 - 9:55: Create reminders using data from form and store them in a list
-- 10:00 - 10:10: Some form/code cleanup
-- 10:10 - 11:50: Add popups for form validation/error handling; formatting improvements
+<summary>Week 1</summary>
+
+| Date               | Start Time | End Time | Task(s)                                   |
+|--------------------|------------|----------|-------------------------------------------|
+| Monday, 1/10/22    | 9:30       | 10:00    | Troubleshoot project creation & gitignore |
+| Monday, 1/10/22    | 10:00      | 10:50    | Some cleanup & code setup; hook first button to Reminder class
+| Monday, 1/10/22    | 10:50      | 12:00    | Show create reminder group when reminder button clicked; experimented with date/time inputs
+| Tuesday, 1/11/22   | 10:20      | 11:50    | Add functionality to the "remind me in..." buttons to update the reminder time with the set intervals
+| Tuesday, 1/11/22   | 11:50      | 1:30     | Attempt to prevent user from setting reminder time to a past time, unfinished, need to learn more about how additional forms work
+| Thursday, 1/13/22  | 9:20       | 9:55     | Create reminders using data from form and store them in a list
+| Thursday, 1/13/22  | 10:00      | 12:00    | Form/code cleanup, Add popups for form validation/error handling; formatting improvements
 
 </details>
 
 <details>
-	<summary>Week 2</summary>
+<summary>Week 2</summary>
 
 ### Wednesday, 3/2/22
 - 2:00 - 4:00: Research databases and the best way to handle them
@@ -31,7 +29,7 @@
 </details>
 
 <details>
-	<summary>Week 3</summary>
+<summary>Week 3</summary>
 
 ### Monday, 4/18/22
 - 9:30 - 10:00: Install & configure VS 2022 since it has some features I'll need, and I want to be up to date anyways.
@@ -51,7 +49,7 @@
 </details>
 
 <details>
-	<summary>Week 4</summary>
+<summary>Week 4</summary>
 
 ### Monday, 4/25/22
 - 1:00 - 2:00: Update front end to add right panel to show either create reminder or reminder details.
