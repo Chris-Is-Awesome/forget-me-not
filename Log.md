@@ -40,3 +40,4 @@
 | Monday, 4/25/22    | 2:00       | 4:00     | Merged big PR; show more reminder details when reminder button is clicked. VS form designer is bad, don't use it.
 | Tuesday, 4/26/22   | 9:15       | 11:00    | Organize file structure, minor code cleanup with singletons, fix annoying VS issue
 | Tuesday, 4/26/22   | 11:00      | 12:20    | Organize readme(s) & learn more markdown tricks - rewrote what you're reading now!
+| Wednesday, 4/27/22 | 9:40       | 11:30    | Tried adding data to database, but VS is shit and doesn't support that, so gotta restart project :)

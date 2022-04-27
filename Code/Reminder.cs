@@ -53,6 +53,7 @@ namespace ForgetMeNot
 
 			// TODO: Add to database so it persists through sessions
 			Console.WriteLine("Reminder created! Time to add it to a database!");
+			databaseHandler.AddData(newReminder);
 		}
 
 		public class ReminderData
