@@ -9,7 +9,7 @@ namespace ForgetMeNot
 		private Reminder() { }
 
 		private static Reminder _instance;
-		private readonly DatabaseHandler databaseHandler = new DatabaseHandler();
+		private readonly DatabaseHandler databaseHandler = DatabaseHandler.Instance;
 		private readonly List<ReminderData> _allReminders = new List<ReminderData>();
 
 		public static Reminder Instance
@@ -30,14 +30,12 @@ namespace ForgetMeNot
 			for (int i = 0; i < table.Rows.Count; i++)
 			{
 				DataRow row = table.Rows[i];
+				int id = int.Parse(row["Id"].ToString());
 				string message = row["Message"].ToString();
-				//DateTime time = DateTime.Parse(row["Time"].ToString());
-				DateTime time = DateTime.Now;
+				DateTime time = DateTime.Parse(row["Time"].ToString());
 				bool allowSnoozing = bool.Parse(row["SnoozingAllowed"].ToString());
-				ReminderData reminder = new ReminderData(i, message, time, allowSnoozing);
+				ReminderData reminder = new ReminderData(id, message, time, allowSnoozing);
 				_allReminders.Add(reminder);
-
-				Console.WriteLine($"Loaded reminder: {message.Trim()}");
 			}
 
 			return _allReminders;
@@ -51,8 +49,7 @@ namespace ForgetMeNot
 			// Add reminder to list of active reminders
 			_allReminders.Add(newReminder);
 
-			// TODO: Add to database so it persists through sessions
-			Console.WriteLine("Reminder created! Time to add it to a database!");
+			// Add reminder to database
 			databaseHandler.AddData(newReminder);
 		}
 

@@ -41,3 +41,11 @@
 | Tuesday, 4/26/22   | 9:15       | 11:00    | Organize file structure, minor code cleanup with singletons, fix annoying VS issue
 | Tuesday, 4/26/22   | 11:00      | 12:20    | Organize readme(s) & learn more markdown tricks - rewrote what you're reading now!
 | Wednesday, 4/27/22 | 9:40       | 11:30    | Tried adding data to database, but VS is shit and doesn't support that, so gotta restart project :)
+| Thursday, 4/28/22  | 9:10       | 12:00    | Troubleshooting with VS database stuff
+| Friday, 4/29/22    | 9:15       | 12:00    | Cleanup database code & attempt to set up edit/delete functionality
+
+### Week 5
+| Day                | Start Time | End Time | Task(s)                                                  |
+|--------------------|------------|----------|----------------------------------------------------------|
+| Monday, 5/2/22     | 9:45       | 12:00    | Troubleshoot why edit/delete functionality isn't working
+| Tuesday, 5/3/22    | 9:10       | 11:50    | Scrapped edit/delete functionality and started it from scratch, successfully got delete functionality working, added debug handler for improved error handling, and some minor code cleanup

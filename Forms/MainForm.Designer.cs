@@ -29,6 +29,7 @@ namespace ForgetMeNot
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.message_header = new System.Windows.Forms.Label();
             this.createReminderGroup_submitReminder_btn = new System.Windows.Forms.Button();
@@ -45,18 +46,22 @@ namespace ForgetMeNot
             this.createReminder_panel = new System.Windows.Forms.Panel();
             this.right_group = new System.Windows.Forms.GroupBox();
             this.reminderDetails_panel = new System.Windows.Forms.Panel();
-            this.reminderDetails_message = new System.Windows.Forms.Label();
-            this.reminderDetails_remindTime = new System.Windows.Forms.Label();
-            this.reminderDetails_createdAtTime = new System.Windows.Forms.Label();
-            this.reminderDetails_isSnoozeable = new System.Windows.Forms.Label();
-            this.reminderDetails_editBtn = new System.Windows.Forms.Button();
-            this.reminderDetails_copyBtn = new System.Windows.Forms.Button();
-            this.reminderDetails_deleteBtn = new System.Windows.Forms.Button();
             this.reminderDetails_goBackBtn = new System.Windows.Forms.Button();
+            this.reminderDetails_deleteBtn = new System.Windows.Forms.Button();
+            this.reminderDetails_copyBtn = new System.Windows.Forms.Button();
+            this.reminderDetails_editBtn = new System.Windows.Forms.Button();
+            this.reminderDetails_isSnoozeable = new System.Windows.Forms.Label();
+            this.reminderDetails_createdAtTime = new System.Windows.Forms.Label();
+            this.reminderDetails_remindTime = new System.Windows.Forms.Label();
+            this.reminderDetails_message = new System.Windows.Forms.Label();
+            this.reminderDataDataSet = new ForgetMeNot.Data.reminderDataDataSet();
+            this.reminderDataDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.left_panel.SuspendLayout();
             this.createReminder_panel.SuspendLayout();
             this.right_group.SuspendLayout();
             this.reminderDetails_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reminderDataDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reminderDataDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // message_header
@@ -238,73 +243,18 @@ namespace ForgetMeNot
             this.reminderDetails_panel.TabIndex = 8;
             this.reminderDetails_panel.Visible = false;
             // 
-            // reminderDetails_message
+            // reminderDetails_goBackBtn
             // 
-            this.reminderDetails_message.AutoEllipsis = true;
-            this.reminderDetails_message.AutoSize = true;
-            this.reminderDetails_message.Location = new System.Drawing.Point(3, 9);
-            this.reminderDetails_message.MaximumSize = new System.Drawing.Size(265, 60);
-            this.reminderDetails_message.Name = "reminderDetails_message";
-            this.reminderDetails_message.Size = new System.Drawing.Size(264, 60);
-            this.reminderDetails_message.TabIndex = 0;
-            this.reminderDetails_message.Text = resources.GetString("reminderDetails_message.Text");
-            this.reminderDetails_message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // reminderDetails_remindTime
-            // 
-            this.reminderDetails_remindTime.AutoSize = true;
-            this.reminderDetails_remindTime.Location = new System.Drawing.Point(6, 76);
-            this.reminderDetails_remindTime.Name = "reminderDetails_remindTime";
-            this.reminderDetails_remindTime.Size = new System.Drawing.Size(173, 13);
-            this.reminderDetails_remindTime.TabIndex = 1;
-            this.reminderDetails_remindTime.Text = "Reminds at: 11/11/11 at 11:11 PM";
-            this.reminderDetails_remindTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // reminderDetails_createdAtTime
-            // 
-            this.reminderDetails_createdAtTime.AutoSize = true;
-            this.reminderDetails_createdAtTime.Location = new System.Drawing.Point(6, 97);
-            this.reminderDetails_createdAtTime.Name = "reminderDetails_createdAtTime";
-            this.reminderDetails_createdAtTime.Size = new System.Drawing.Size(169, 13);
-            this.reminderDetails_createdAtTime.TabIndex = 2;
-            this.reminderDetails_createdAtTime.Text = "Created at: 11/11/11 at 11:11 PM";
-            this.reminderDetails_createdAtTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // reminderDetails_isSnoozeable
-            // 
-            this.reminderDetails_isSnoozeable.AutoSize = true;
-            this.reminderDetails_isSnoozeable.Location = new System.Drawing.Point(6, 121);
-            this.reminderDetails_isSnoozeable.Name = "reminderDetails_isSnoozeable";
-            this.reminderDetails_isSnoozeable.Size = new System.Drawing.Size(96, 13);
-            this.reminderDetails_isSnoozeable.TabIndex = 3;
-            this.reminderDetails_isSnoozeable.Text = "Is snoozeable: Yes";
-            this.reminderDetails_isSnoozeable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // reminderDetails_editBtn
-            // 
-            this.reminderDetails_editBtn.BackColor = System.Drawing.Color.Gray;
-            this.reminderDetails_editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reminderDetails_editBtn.ForeColor = System.Drawing.Color.Black;
-            this.reminderDetails_editBtn.Location = new System.Drawing.Point(19, 162);
-            this.reminderDetails_editBtn.Name = "reminderDetails_editBtn";
-            this.reminderDetails_editBtn.Size = new System.Drawing.Size(58, 23);
-            this.reminderDetails_editBtn.TabIndex = 4;
-            this.reminderDetails_editBtn.Text = "Edit";
-            this.reminderDetails_editBtn.UseVisualStyleBackColor = false;
-            this.reminderDetails_editBtn.Click += new System.EventHandler(this.reminderDetails_editBtn_Click);
-            // 
-            // reminderDetails_copyBtn
-            // 
-            this.reminderDetails_copyBtn.BackColor = System.Drawing.Color.Gray;
-            this.reminderDetails_copyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reminderDetails_copyBtn.ForeColor = System.Drawing.Color.Black;
-            this.reminderDetails_copyBtn.Location = new System.Drawing.Point(108, 162);
-            this.reminderDetails_copyBtn.Name = "reminderDetails_copyBtn";
-            this.reminderDetails_copyBtn.Size = new System.Drawing.Size(58, 23);
-            this.reminderDetails_copyBtn.TabIndex = 5;
-            this.reminderDetails_copyBtn.Text = "Copy";
-            this.reminderDetails_copyBtn.UseVisualStyleBackColor = false;
-            this.reminderDetails_copyBtn.Click += new System.EventHandler(this.reminderDetails_copyBtn_Click);
+            this.reminderDetails_goBackBtn.BackColor = System.Drawing.Color.Gray;
+            this.reminderDetails_goBackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reminderDetails_goBackBtn.ForeColor = System.Drawing.Color.Black;
+            this.reminderDetails_goBackBtn.Location = new System.Drawing.Point(108, 202);
+            this.reminderDetails_goBackBtn.Name = "reminderDetails_goBackBtn";
+            this.reminderDetails_goBackBtn.Size = new System.Drawing.Size(58, 23);
+            this.reminderDetails_goBackBtn.TabIndex = 7;
+            this.reminderDetails_goBackBtn.Text = "Go back";
+            this.reminderDetails_goBackBtn.UseVisualStyleBackColor = false;
+            this.reminderDetails_goBackBtn.Click += new System.EventHandler(this.reminderDetails_goBackBtn_Click);
             // 
             // reminderDetails_deleteBtn
             // 
@@ -319,18 +269,83 @@ namespace ForgetMeNot
             this.reminderDetails_deleteBtn.UseVisualStyleBackColor = false;
             this.reminderDetails_deleteBtn.Click += new System.EventHandler(this.reminderDetails_deleteBtn_Click);
             // 
-            // reminderDetails_goBackBtn
+            // reminderDetails_copyBtn
             // 
-            this.reminderDetails_goBackBtn.BackColor = System.Drawing.Color.Gray;
-            this.reminderDetails_goBackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reminderDetails_goBackBtn.ForeColor = System.Drawing.Color.Black;
-            this.reminderDetails_goBackBtn.Location = new System.Drawing.Point(108, 202);
-            this.reminderDetails_goBackBtn.Name = "reminderDetails_goBackBtn";
-            this.reminderDetails_goBackBtn.Size = new System.Drawing.Size(58, 23);
-            this.reminderDetails_goBackBtn.TabIndex = 7;
-            this.reminderDetails_goBackBtn.Text = "Go back";
-            this.reminderDetails_goBackBtn.UseVisualStyleBackColor = false;
-            this.reminderDetails_goBackBtn.Click += new System.EventHandler(this.reminderDetails_goBackBtn_Click);
+            this.reminderDetails_copyBtn.BackColor = System.Drawing.Color.Gray;
+            this.reminderDetails_copyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reminderDetails_copyBtn.ForeColor = System.Drawing.Color.Black;
+            this.reminderDetails_copyBtn.Location = new System.Drawing.Point(108, 162);
+            this.reminderDetails_copyBtn.Name = "reminderDetails_copyBtn";
+            this.reminderDetails_copyBtn.Size = new System.Drawing.Size(58, 23);
+            this.reminderDetails_copyBtn.TabIndex = 5;
+            this.reminderDetails_copyBtn.Text = "Copy";
+            this.reminderDetails_copyBtn.UseVisualStyleBackColor = false;
+            this.reminderDetails_copyBtn.Click += new System.EventHandler(this.reminderDetails_copyBtn_Click);
+            // 
+            // reminderDetails_editBtn
+            // 
+            this.reminderDetails_editBtn.BackColor = System.Drawing.Color.Gray;
+            this.reminderDetails_editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reminderDetails_editBtn.ForeColor = System.Drawing.Color.Black;
+            this.reminderDetails_editBtn.Location = new System.Drawing.Point(19, 162);
+            this.reminderDetails_editBtn.Name = "reminderDetails_editBtn";
+            this.reminderDetails_editBtn.Size = new System.Drawing.Size(58, 23);
+            this.reminderDetails_editBtn.TabIndex = 4;
+            this.reminderDetails_editBtn.Text = "Edit";
+            this.reminderDetails_editBtn.UseVisualStyleBackColor = false;
+            this.reminderDetails_editBtn.Click += new System.EventHandler(this.reminderDetails_editBtn_Click);
+            // 
+            // reminderDetails_isSnoozeable
+            // 
+            this.reminderDetails_isSnoozeable.AutoSize = true;
+            this.reminderDetails_isSnoozeable.Location = new System.Drawing.Point(6, 121);
+            this.reminderDetails_isSnoozeable.Name = "reminderDetails_isSnoozeable";
+            this.reminderDetails_isSnoozeable.Size = new System.Drawing.Size(96, 13);
+            this.reminderDetails_isSnoozeable.TabIndex = 3;
+            this.reminderDetails_isSnoozeable.Text = "Is snoozeable: Yes";
+            this.reminderDetails_isSnoozeable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // reminderDetails_createdAtTime
+            // 
+            this.reminderDetails_createdAtTime.AutoSize = true;
+            this.reminderDetails_createdAtTime.Location = new System.Drawing.Point(6, 97);
+            this.reminderDetails_createdAtTime.Name = "reminderDetails_createdAtTime";
+            this.reminderDetails_createdAtTime.Size = new System.Drawing.Size(169, 13);
+            this.reminderDetails_createdAtTime.TabIndex = 2;
+            this.reminderDetails_createdAtTime.Text = "Created at: 11/11/11 at 11:11 PM";
+            this.reminderDetails_createdAtTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // reminderDetails_remindTime
+            // 
+            this.reminderDetails_remindTime.AutoSize = true;
+            this.reminderDetails_remindTime.Location = new System.Drawing.Point(6, 76);
+            this.reminderDetails_remindTime.Name = "reminderDetails_remindTime";
+            this.reminderDetails_remindTime.Size = new System.Drawing.Size(173, 13);
+            this.reminderDetails_remindTime.TabIndex = 1;
+            this.reminderDetails_remindTime.Text = "Reminds at: 11/11/11 at 11:11 PM";
+            this.reminderDetails_remindTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // reminderDetails_message
+            // 
+            this.reminderDetails_message.AutoEllipsis = true;
+            this.reminderDetails_message.AutoSize = true;
+            this.reminderDetails_message.Location = new System.Drawing.Point(3, 9);
+            this.reminderDetails_message.MaximumSize = new System.Drawing.Size(265, 60);
+            this.reminderDetails_message.Name = "reminderDetails_message";
+            this.reminderDetails_message.Size = new System.Drawing.Size(264, 60);
+            this.reminderDetails_message.TabIndex = 0;
+            this.reminderDetails_message.Text = resources.GetString("reminderDetails_message.Text");
+            this.reminderDetails_message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // reminderDataDataSet
+            // 
+            this.reminderDataDataSet.DataSetName = "reminderDataDataSet";
+            this.reminderDataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // reminderDataDataSetBindingSource
+            // 
+            this.reminderDataDataSetBindingSource.DataSource = this.reminderDataDataSet;
+            this.reminderDataDataSetBindingSource.Position = 0;
             // 
             // MainForm
             // 
@@ -350,6 +365,8 @@ namespace ForgetMeNot
             this.right_group.ResumeLayout(false);
             this.reminderDetails_panel.ResumeLayout(false);
             this.reminderDetails_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.reminderDataDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reminderDataDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -378,6 +395,8 @@ namespace ForgetMeNot
         private System.Windows.Forms.Label reminderDetails_createdAtTime;
         private System.Windows.Forms.Label reminderDetails_remindTime;
         private System.Windows.Forms.Button reminderDetails_goBackBtn;
+        private System.Windows.Forms.BindingSource reminderDataDataSetBindingSource;
+        private Data.reminderDataDataSet reminderDataDataSet;
     }
 }
 

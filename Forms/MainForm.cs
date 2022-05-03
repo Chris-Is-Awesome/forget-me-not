@@ -12,7 +12,50 @@ namespace ForgetMeNot
 			ShowCreateReminderPanel();
 		}
 
-		DateTimePicker remindTime;
+		private DateTimePicker remindTime;
+		private FrontBackHybrid frontToBack;
+
+		public void RedrawRemindersList()
+		{
+			left_panel.Controls.Clear();
+			DrawRemindersList();
+		}
+
+		private void MainForm_Load(object sender, EventArgs e)
+		{
+			frontToBack = new FrontBackHybrid(this);
+			DrawRemindersList();
+		}
+
+		private void DrawRemindersList()
+        {
+			var reminders = frontToBack.LoadReminders();
+			int spaceBetweenEachReminder = 60;
+
+			foreach (Reminder.ReminderData reminder in reminders)
+			{
+				string reminderMsg = reminder.Message;
+				spaceBetweenEachReminder += -60;
+
+				// Create button
+				ComponentHelper.ButtonData buttonData = new ComponentHelper.ButtonData
+				{
+					BackgroundColor = Color.Gray,
+					TextColor = Color.Black,
+					FlatStyle = FlatStyle.Flat,
+					Name = $"reminderBtn_{reminder.Id}",
+					Text = $"{reminderMsg}\nReminds me at: {reminder.Time}",
+					TextAlign = ContentAlignment.MiddleCenter,
+					Location = new Point(1, 19 - spaceBetweenEachReminder),
+					Size = new Size(250, 55),
+					Callback = OnReminderButtonClick
+				};
+
+				// Add button to controls
+				Button button = ComponentHelper.CreateButton(buttonData);
+				left_panel.Controls.Add(button);
+			}
+		}
 
 		private void ShowCreateReminderPanel()
 		{
@@ -35,13 +78,16 @@ namespace ForgetMeNot
 
 		private void ShowReminderDetailsPanel(Reminder.ReminderData reminder)
         {
-			// Toggle panels
-			createReminder_panel.Visible = false;
-			reminderDetails_panel.Visible = true;
-			right_group.Text = "Reminder details";
+			if (reminder != null)
+            {
+				// Toggle panels
+				createReminder_panel.Visible = false;
+				reminderDetails_panel.Visible = true;
+				right_group.Text = "Reminder details";
 
-			// Show reminder details
-			reminderDetails_message.Text = reminder.Message;
+				// Show reminder details
+				reminderDetails_message.Text = reminder.Message;
+			}
 		}
 
 		private void remindIn30Minutes_btn_Click(object sender, EventArgs e)
@@ -98,37 +144,7 @@ namespace ForgetMeNot
 			else
 			{
 				// Create reminder
-				Reminder.Instance.CreateNewReminder(reminder_message, reminder_time, reminder_allowSnoozing);
-			}
-		}
-
-		private void MainForm_Load(object sender, EventArgs e)
-		{
-			var reminders = Reminder.Instance.LoadReminders();
-			int spaceBetweenEachReminder = 60;
-
-			for (int i = 0; i < reminders.Count; i++)
-			{
-				spaceBetweenEachReminder += -60;
-				string reminderMsg = reminders[i].Message.ToString();
-
-				// Create button
-				ComponentHelper.ButtonData buttonData = new ComponentHelper.ButtonData
-				{
-					BackgroundColor = Color.Gray,
-					TextColor = Color.Black,
-					FlatStyle = FlatStyle.Flat,
-					Name = $"reminderBtn_{i}",
-					Text = $"{reminderMsg}\nReminds me at: {reminders[i].Time}",
-					TextAlign = ContentAlignment.MiddleCenter,
-					Location = new Point(1, 19 - spaceBetweenEachReminder),
-					Size = new Size(250, 55),
-					Callback = OnReminderButtonClick
-				};
-
-				// Add button to controls
-				Button button = ComponentHelper.CreateButton(buttonData);
-				left_panel.Controls.Add(button);
+				frontToBack.CreateReminder(reminder_message, reminder_time, reminder_allowSnoozing);
 			}
 		}
 
@@ -137,12 +153,7 @@ namespace ForgetMeNot
 		{
 			Button button = (Button)sender;
 			int id = int.Parse(button.Name[button.Name.Length - 1].ToString());
-			Reminder.ReminderData reminder = Reminder.Instance.Reminders.Find(x => x.Id == id);
-
-			if (reminder != null)
-				ShowReminderDetailsPanel(reminder);
-			else
-				Console.WriteLine($"Something went wrong! Button {button.Name} did not return ReminderData!");
+			ShowReminderDetailsPanel(frontToBack.OnReminderSelected(id));
 		}
 
         private void reminderDetails_editBtn_Click(object sender, EventArgs e)
@@ -157,8 +168,8 @@ namespace ForgetMeNot
 
         private void reminderDetails_deleteBtn_Click(object sender, EventArgs e)
         {
-			// TODO: Delete
-        }
+			frontToBack.OnReminderDeleted();
+		}
 
         private void reminderDetails_goBackBtn_Click(object sender, EventArgs e)
         {

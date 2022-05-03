@@ -69,6 +69,8 @@
   <ItemGroup>
     <Compile Include="Code\ComponentHelper.cs" />
     <Compile Include="Code\DatabaseHandler.cs" />
+    <Compile Include="Code\Debug.cs" />
+    <Compile Include="Code\FrontBackHybrid.cs" />
     <Compile Include="Code\Program.cs" />
     <Compile Include="Code\Reminder.cs" />
     <Compile Include="Forms\MainForm.cs">

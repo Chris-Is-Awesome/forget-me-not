@@ -6,75 +6,101 @@ namespace ForgetMeNot
 {
     class DatabaseHandler
     {
-		private readonly string tableName = "tbl_Reminders";
+		private static DatabaseHandler _instance;
+		private SqlConnection _connection;
+
+		public static DatabaseHandler Instance
+        {
+            get
+            {
+				if (_instance == null)
+					_instance = new DatabaseHandler();
+				return _instance;
+            }
+        }
+		private string TableName { get { return "tbl_Reminders"; } }
+		private SqlConnection Connection
+        {
+			get
+            {
+				if (_connection == null)
+                {
+					string connectionStr = Properties.Settings.Default.reminderDataConnectionString;
+					_connection = new SqlConnection(connectionStr);
+				}
+
+				return _connection;
+            }
+        }
 
 		public DataTable LoadDatabase()
 		{
-			SqlConnection connection = GetConnection();
-			string command = $"SELECT * FROM {tableName}";
 			DataTable table = new DataTable();
-			SqlDataAdapter adapter = new SqlDataAdapter(command, connection);
-			adapter.Fill(table);
 
-			connection.Close();
+			try
+            {
+				string sql = $"SELECT * FROM {TableName}";
+
+				using (SqlDataAdapter adapter = new SqlDataAdapter(sql, Connection))
+                {
+					adapter.Fill(table);
+                }
+			}
+			catch (Exception ex)
+            {
+				Debug.Log($"ERROR: {ex.Message}");
+            }
+
 			return table;
 		}
 
 		public void AddData(Reminder.ReminderData reminder)
+		{
+			try
+			{
+				string sql = $"INSERT INTO {TableName} (Id, Message, Time, SnoozingAllowed) VALUES (@Id, @Message, @Time, @SnoozingAllowed)";
+
+				using (SqlCommand cmd = new SqlCommand(sql, Connection))
+				{
+					cmd.Parameters.AddWithValue("@Id", reminder.Id);
+					cmd.Parameters.AddWithValue("@Message", reminder.Message);
+					cmd.Parameters.AddWithValue("@Time", reminder.Time);
+					cmd.Parameters.AddWithValue("@SnoozingAllowed", reminder.SnoozingAllowed);
+					Connection.Open();
+					cmd.ExecuteNonQuery();
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.Log($"ERROR: {ex.Message}");
+			}
+			finally
+			{
+				Connection.Close();
+			}
+		}
+
+		public void DeleteData(int id)
         {
-			/*
-			SqlConnection connection = GetConnection();
-			string command = $"INSERT INTO {tableName} VALUES ({reminder.Message}, {reminder.Time}, {reminder.SnoozingAllowed})";
-			DataTable table = new DataTable();
-			SqlDataAdapter adapter = new SqlDataAdapter(command, connection);
-			adapter.Update(table);
-
-			connection.Close();
-			*/
-
-			SqlConnection connection = GetConnection();
-			
 			try
             {
-				string sql = $"INSERT INTO {tableName} (Id, Message, Time, SnoozingAllowed) VALUES (@Id, @Message, @Time, @SnoozingAllowed)";
+				Debug.Log("test: " + id);
+				string sql = $"DELETE FROM {TableName} WHERE Id={id}";
 
-				using (SqlCommand cmd = new SqlCommand(sql, connection))
+				using (SqlCommand cmd = new SqlCommand(sql, Connection))
                 {
-					connection.Open();
-					cmd.Parameters.Add("@Id", SqlDbType.Int);
-					cmd.Parameters["@Id"].Value = reminder.Id;
-					cmd.Parameters.Add("@Message", SqlDbType.Text);
-					cmd.Parameters["@Message"].Value = reminder.Message;
-					cmd.Parameters.Add("@Time", SqlDbType.DateTime);
-					cmd.Parameters["@Time"].Value = reminder.Time;
-					cmd.Parameters.Add("@SnoozingAllowed", SqlDbType.Bit);
-					cmd.Parameters["@SnoozingAllowed"].Value = 1;
-					Console.WriteLine(cmd.ExecuteNonQuery());
-					Console.WriteLine("Success!");
+					Connection.Open();
+					cmd.ExecuteNonQuery();
                 }
             }
 			catch (Exception ex)
-            {
-				Console.WriteLine($"EXCEPTION: {ex.Message}");
-            }
+			{
+				Debug.Log($"ERROR: {ex.Message}");
+			}
 			finally
-            {
-				connection.Close();
-				Console.WriteLine("Closed!");
-            }
-		}
-
-		private SqlConnection GetConnection()
-        {
-			string connectionStr = Properties.Settings.Default.reminderDataConnectionString;
-			SqlConnection connection = new SqlConnection(connectionStr);
-
-			/*
-			if (connection.State != ConnectionState.Open)
-				connection.Open();
-			*/
-
-			return connection;
+			{
+				Connection.Close();
+			}
 		}
 	}
 }
