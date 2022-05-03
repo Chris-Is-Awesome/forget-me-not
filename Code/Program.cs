@@ -11,6 +11,7 @@ namespace ForgetMeNot
 		[STAThread]
 		static void Main()
 		{
+			Debug.Log($"===== PROGRAM STARTED AT {DateTime.Now} =====", false);
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new MainForm());
