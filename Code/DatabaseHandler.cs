@@ -48,7 +48,7 @@ namespace ForgetMeNot
 			}
 			catch (Exception ex)
             {
-				Debug.Log($"ERROR: {ex.Message}");
+				Debug.LogError(ex.Message);
             }
 
 			return table;
@@ -58,7 +58,7 @@ namespace ForgetMeNot
 		{
 			try
 			{
-				string sql = $"INSERT INTO {TableName} (Id, Message, Time, SnoozingAllowed) VALUES (@Id, @Message, @Time, @SnoozingAllowed)";
+				string sql = $"INSERT INTO {TableName} (Id, Message, Time, SnoozingAllowed, CreatedAt) VALUES (@Id, @Message, @Time, @SnoozingAllowed, @CreatedAt)";
 
 				using (SqlCommand cmd = new SqlCommand(sql, Connection))
 				{
@@ -66,13 +66,14 @@ namespace ForgetMeNot
 					cmd.Parameters.AddWithValue("@Message", reminder.Message);
 					cmd.Parameters.AddWithValue("@Time", reminder.Time);
 					cmd.Parameters.AddWithValue("@SnoozingAllowed", reminder.SnoozingAllowed);
+					cmd.Parameters.AddWithValue("@CreatedAt", reminder.CreatedAt);
 					Connection.Open();
 					cmd.ExecuteNonQuery();
 				}
 			}
 			catch (Exception ex)
 			{
-				Debug.Log($"ERROR: {ex.Message}");
+				Debug.LogError(ex.Message);
 			}
 			finally
 			{
@@ -80,12 +81,11 @@ namespace ForgetMeNot
 			}
 		}
 
-		public void DeleteData(int id)
+		public void DeleteData(string id)
         {
 			try
             {
-				Debug.Log("test: " + id);
-				string sql = $"DELETE FROM {TableName} WHERE Id={id}";
+				string sql = $"DELETE FROM {TableName} WHERE Id='{id}'";
 
 				using (SqlCommand cmd = new SqlCommand(sql, Connection))
                 {
@@ -95,12 +95,40 @@ namespace ForgetMeNot
             }
 			catch (Exception ex)
 			{
-				Debug.Log($"ERROR: {ex.Message}");
+				Debug.LogError(ex.Message);
 			}
 			finally
 			{
 				Connection.Close();
 			}
 		}
+
+		public void UpdateData(Reminder.ReminderData reminder)
+        {
+			string sql = string.Concat(
+					$"UPDATE {TableName} SET ",
+					$"Message='{reminder.Message}', ",
+					$"Time='{reminder.Time}', ",
+					$"SnoozingAllowed='{reminder.SnoozingAllowed}', ",
+					$"CreatedAt='{DateTime.Now}' ",
+					$"WHERE Id='{reminder.Id}'");
+
+			try
+            {
+				using (SqlCommand cmd = new SqlCommand(sql, Connection))
+                {
+					Connection.Open();
+					cmd.ExecuteNonQuery();
+                }
+            }
+			catch (Exception ex)
+            {
+				Debug.LogError($"SQL command '{sql}' failed:\n{ex.Message}");
+            }
+			finally
+            {
+				Connection.Close();
+			}
+        }
 	}
 }

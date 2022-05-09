@@ -49,3 +49,12 @@
 |--------------------|------------|----------|----------------------------------------------------------|
 | Monday, 5/2/22     | 9:45       | 12:00    | Troubleshoot why edit/delete functionality isn't working
 | Tuesday, 5/3/22    | 9:10       | 11:50    | Scrapped edit/delete functionality and started it from scratch, successfully got delete functionality working, added debug handler for improved error handling, and some minor code cleanup
+| Wednesday, 5/4/22  | 1:30       | 1:45     | Add update functionality to database handler
+| Wednesday, 5/4/22  | 1:45       | 4:00     | Start brainstorming/implementing a edit form for reminders
+| Thursday, 5/5/22   | 10:00      | 12:00    | Added edit functionality? Doesn't quite work how I expected it to yet; needs fixing. Fixed issue with duplicate IDs
+| Friday, 5/6/22     | 9:15       | 12:00    | Troubleshooting galore...
+
+### Week 6
+| Day                | Start Time | End Time | Task(s)                                                  |
+|--------------------|------------|----------|----------------------------------------------------------|
+| Monday, 5/9/22     | 9:00       | 11:00    | Refactor to use GUID, got edit functionality working, added CreatedAt column to database to allow filtering reminders by time created, some minor bug fixing
