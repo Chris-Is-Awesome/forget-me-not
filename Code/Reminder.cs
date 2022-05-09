@@ -30,11 +30,12 @@ namespace ForgetMeNot
 			for (int i = 0; i < table.Rows.Count; i++)
 			{
 				DataRow row = table.Rows[i];
-				int id = int.Parse(row["Id"].ToString());
+				string id = row["Id"].ToString();
 				string message = row["Message"].ToString();
 				DateTime time = DateTime.Parse(row["Time"].ToString());
 				bool allowSnoozing = bool.Parse(row["SnoozingAllowed"].ToString());
-				ReminderData reminder = new ReminderData(id, message, time, allowSnoozing);
+				DateTime createdAt = DateTime.Parse(row["Time"].ToString());
+				ReminderData reminder = new ReminderData(id, message, time, allowSnoozing, createdAt);
 				_allReminders.Add(reminder);
 			}
 
@@ -44,7 +45,8 @@ namespace ForgetMeNot
 		public void CreateNewReminder(string message, DateTime time, bool snoozingAllowed)
 		{
 			// Create new reminder
-			ReminderData newReminder = new ReminderData(_allReminders.Count + 1, message, time, snoozingAllowed);
+			string id = Guid.NewGuid().ToString();
+			ReminderData newReminder = new ReminderData(id, message, time, snoozingAllowed, DateTime.Now);
 
 			// Add reminder to list of active reminders
 			_allReminders.Add(newReminder);
@@ -55,17 +57,19 @@ namespace ForgetMeNot
 
 		public class ReminderData
 		{
-			public int Id { get; }
+			public string Id { get; }
 			public string Message { get; }
 			public DateTime Time { get; }
 			public bool SnoozingAllowed { get; }
+			public DateTime CreatedAt { get; }
 
-			public ReminderData(int id, string message, DateTime time, bool snoozingAllowed)
+			public ReminderData(string id, string message, DateTime time, bool snoozingAllowed, DateTime createdAt)
 			{
 				Id = id;
 				Message = message;
 				Time = time;
 				SnoozingAllowed = snoozingAllowed;
+				CreatedAt = createdAt;
 			}
 		}
 	}

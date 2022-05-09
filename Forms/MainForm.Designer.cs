@@ -29,7 +29,6 @@ namespace ForgetMeNot
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.message_header = new System.Windows.Forms.Label();
             this.createReminderGroup_submitReminder_btn = new System.Windows.Forms.Button();
@@ -54,14 +53,10 @@ namespace ForgetMeNot
             this.reminderDetails_createdAtTime = new System.Windows.Forms.Label();
             this.reminderDetails_remindTime = new System.Windows.Forms.Label();
             this.reminderDetails_message = new System.Windows.Forms.Label();
-            this.reminderDataDataSet = new ForgetMeNot.Data.reminderDataDataSet();
-            this.reminderDataDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.left_panel.SuspendLayout();
             this.createReminder_panel.SuspendLayout();
             this.right_group.SuspendLayout();
             this.reminderDetails_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.reminderDataDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reminderDataDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // message_header
@@ -337,16 +332,6 @@ namespace ForgetMeNot
             this.reminderDetails_message.Text = resources.GetString("reminderDetails_message.Text");
             this.reminderDetails_message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // reminderDataDataSet
-            // 
-            this.reminderDataDataSet.DataSetName = "reminderDataDataSet";
-            this.reminderDataDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // reminderDataDataSetBindingSource
-            // 
-            this.reminderDataDataSetBindingSource.DataSource = this.reminderDataDataSet;
-            this.reminderDataDataSetBindingSource.Position = 0;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,8 +350,6 @@ namespace ForgetMeNot
             this.right_group.ResumeLayout(false);
             this.reminderDetails_panel.ResumeLayout(false);
             this.reminderDetails_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.reminderDataDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reminderDataDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -395,8 +378,6 @@ namespace ForgetMeNot
         private System.Windows.Forms.Label reminderDetails_createdAtTime;
         private System.Windows.Forms.Label reminderDetails_remindTime;
         private System.Windows.Forms.Button reminderDetails_goBackBtn;
-        private System.Windows.Forms.BindingSource reminderDataDataSetBindingSource;
-        private Data.reminderDataDataSet reminderDataDataSet;
     }
 }
 

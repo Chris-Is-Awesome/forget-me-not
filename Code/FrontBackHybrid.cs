@@ -29,12 +29,12 @@ namespace ForgetMeNot
             mainForm.RedrawRemindersList();
         }
 
-        public Reminder.ReminderData OnReminderSelected(int id)
+        public Reminder.ReminderData OnReminderSelected(string id)
         {
             selectedReminder = reminderHandler.Reminders.Find(x => x.Id == id);
 
             if (selectedReminder == null)
-                Debug.Log($"Error: Failed to return a reminder with ID {id}. Returning null.");
+                Debug.LogError($"Failed to return a reminder with ID {id}. Returning null.");
 
             return selectedReminder;
         }
@@ -44,9 +44,18 @@ namespace ForgetMeNot
             //
         }
 
-        public void OnReminderUpdated()
+        public void OnReminderUpdated(string message, DateTime time, bool allowSnoozing)
         {
-            //
+            if (selectedReminder != null)
+            {
+                Reminder.ReminderData reminder = new Reminder.ReminderData(selectedReminder.Id, message, time, allowSnoozing, DateTime.Now);
+                databaseHandler.UpdateData(reminder);
+                Reminder.ReminderData reminderToUpdate = reminderHandler.Reminders.Find(x => x.Id == reminder.Id);
+                reminderToUpdate = reminder;
+                mainForm.RedrawRemindersList();
+            }
+            else
+                Debug.LogError("Tried to update null reminder");
         }
 
         public void OnReminderDeleted()
@@ -58,7 +67,7 @@ namespace ForgetMeNot
                 mainForm.RedrawRemindersList();
             }
             else
-                Debug.Log($"Error: Tried to delete null reminder.");
+                Debug.LogError($"Tried to delete null reminder.");
         }
     }
 }

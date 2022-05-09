@@ -12,8 +12,8 @@ namespace ForgetMeNot
 			ShowCreateReminderPanel();
 		}
 
-		private DateTimePicker remindTime;
 		private FrontBackHybrid frontToBack;
+		private DateTimePicker remindTime;
 
 		public void RedrawRemindersList()
 		{
@@ -24,6 +24,10 @@ namespace ForgetMeNot
 		private void MainForm_Load(object sender, EventArgs e)
 		{
 			frontToBack = new FrontBackHybrid(this);
+
+			// Reparent create reminder panel because VS is bad
+			createReminder_panel.Parent = right_group;
+
 			DrawRemindersList();
 		}
 
@@ -59,13 +63,11 @@ namespace ForgetMeNot
 
 		private void ShowCreateReminderPanel()
 		{
-			// Reparent create reminder panel because VS is bad
-			createReminder_panel.Parent = right_group;
-
 			// Toggle panels
 			createReminder_panel.Visible = true;
 			reminderDetails_panel.Visible = false;
 			right_group.Text = "Create reminder";
+			createReminderGroup_submitReminder_btn.Text = "Remind me!";
 
 			// Set custom format for date time picker
 			remindTime = createReminderGroup_remindTime;
@@ -143,8 +145,16 @@ namespace ForgetMeNot
 			}
 			else
 			{
+				Button button = (Button)sender;
+
 				// Create reminder
-				frontToBack.CreateReminder(reminder_message, reminder_time, reminder_allowSnoozing);
+				if (button.Text.StartsWith("Remind"))
+					frontToBack.CreateReminder(reminder_message, reminder_time, reminder_allowSnoozing);
+				else if (button.Text.StartsWith("Edit"))
+                {
+					frontToBack.OnReminderUpdated(reminder_message, reminder_time, reminder_allowSnoozing);
+					ShowCreateReminderPanel();
+				}
 			}
 		}
 
@@ -152,18 +162,20 @@ namespace ForgetMeNot
 		private void OnReminderButtonClick(object sender, EventArgs e)
 		{
 			Button button = (Button)sender;
-			int id = int.Parse(button.Name[button.Name.Length - 1].ToString());
+			string id = button.Name.Substring(button.Name.Length - 36, 36);
 			ShowReminderDetailsPanel(frontToBack.OnReminderSelected(id));
 		}
 
         private void reminderDetails_editBtn_Click(object sender, EventArgs e)
         {
-			// TODO: Edit
+			ShowCreateReminderPanel();
+			right_group.Text = "Edit reminder";
+			createReminderGroup_submitReminder_btn.Text = "Edit";
         }
 
         private void reminderDetails_copyBtn_Click(object sender, EventArgs e)
         {
-			// TODO: Copy
+			frontToBack.OnReminderCopied();
         }
 
         private void reminderDetails_deleteBtn_Click(object sender, EventArgs e)
