@@ -58,3 +58,5 @@
 | Day                | Start Time | End Time | Task(s)                                                  |
 |--------------------|------------|----------|----------------------------------------------------------|
 | Monday, 5/9/22     | 9:00       | 11:00    | Refactor to use GUID, got edit functionality working, added CreatedAt column to database to allow filtering reminders by time created, some minor bug fixing
+| Tuesday, 5/10/22   | 9:00       | 10:00    | Think of what to do next, lots of testing to ensure things are working before moving on
+| Tuesday, 5/10/22   | 10:00      | 10:30    | Final known bug fixes (for now)

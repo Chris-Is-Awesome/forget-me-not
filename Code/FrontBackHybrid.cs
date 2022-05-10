@@ -50,8 +50,8 @@ namespace ForgetMeNot
             {
                 Reminder.ReminderData reminder = new Reminder.ReminderData(selectedReminder.Id, message, time, allowSnoozing, DateTime.Now);
                 databaseHandler.UpdateData(reminder);
-                Reminder.ReminderData reminderToUpdate = reminderHandler.Reminders.Find(x => x.Id == reminder.Id);
-                reminderToUpdate = reminder;
+                int reminderToUpdate = reminderHandler.Reminders.FindIndex(x => x.Id == reminder.Id);
+                reminderHandler.Reminders[reminderToUpdate] = reminder;
                 mainForm.RedrawRemindersList();
             }
             else
