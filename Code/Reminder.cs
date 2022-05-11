@@ -32,9 +32,9 @@ namespace ForgetMeNot
 				DataRow row = table.Rows[i];
 				string id = row["Id"].ToString();
 				string message = row["Message"].ToString();
-				DateTime time = DateTime.Parse(row["Time"].ToString());
+				DateTime time = DateTime.Parse(row["Time"].ToString()).ToUniversalTime();
 				bool allowSnoozing = bool.Parse(row["SnoozingAllowed"].ToString());
-				DateTime createdAt = DateTime.Parse(row["CreatedAt"].ToString());
+				DateTime createdAt = DateTime.Parse(row["CreatedAt"].ToString()).ToUniversalTime();
 				ReminderData reminder = new ReminderData(id, message, time, allowSnoozing, createdAt);
 				_allReminders.Add(reminder);
 			}

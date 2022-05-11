@@ -2,9 +2,9 @@
 Reminders, notes, to-do list, anything to help keep your life organized!
 
 ## MVP to-do:
-- [ ] Convert reminder time to UTC when saving them to database
 - [ ] Trigger system notifications
 - [ ] Run in background
+- [x] Convert reminder time to UTC when saving them to database
 - [x] Show details of selected reminder when clicked
 - [x] Store reminders in a database so they remind the reminder app
 - [x] Ability to delete reminders
