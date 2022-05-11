@@ -60,3 +60,5 @@
 | Monday, 5/9/22     | 9:00       | 11:00    | Refactor to use GUID, got edit functionality working, added CreatedAt column to database to allow filtering reminders by time created, some minor bug fixing
 | Tuesday, 5/10/22   | 9:00       | 10:00    | Think of what to do next, lots of testing to ensure things are working before moving on
 | Tuesday, 5/10/22   | 10:00      | 10:30    | Final known bug fixes (for now)
+| Wednesday, 5/11/22 | 9:00       | 9:30     | Show reminder details when reminder clicked, convert stored times to UTC
+| Wednesday, 5/11/22 | 9:30       | 11:00    | Look into how notifications work, will have to create a custom form to popup as a notification since system notifications don't support custom buttons
