@@ -89,6 +89,9 @@ namespace ForgetMeNot
 
 				// Show reminder details
 				reminderDetails_message.Text = reminder.Message;
+				reminderDetails_remindTime.Text = $"Reminds at: {reminder.Time}";
+				reminderDetails_createdAtTime.Text = $"Created at {reminder.CreatedAt}";
+				reminderDetails_isSnoozeable.Text = $"Is snoozeable: {reminder.SnoozingAllowed}";
 			}
 		}
 
@@ -181,6 +184,7 @@ namespace ForgetMeNot
         private void reminderDetails_deleteBtn_Click(object sender, EventArgs e)
         {
 			frontToBack.OnReminderDeleted();
+			ShowCreateReminderPanel();
 		}
 
         private void reminderDetails_goBackBtn_Click(object sender, EventArgs e)
