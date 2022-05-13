@@ -53,6 +53,7 @@ namespace ForgetMeNot
             this.reminderDetails_createdAtTime = new System.Windows.Forms.Label();
             this.reminderDetails_remindTime = new System.Windows.Forms.Label();
             this.reminderDetails_message = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.left_panel.SuspendLayout();
             this.createReminder_panel.SuspendLayout();
             this.right_group.SuspendLayout();
@@ -196,6 +197,7 @@ namespace ForgetMeNot
             // createReminder_panel
             // 
             this.createReminder_panel.BackColor = System.Drawing.Color.Transparent;
+            this.createReminder_panel.Controls.Add(this.button1);
             this.createReminder_panel.Controls.Add(this.message_header);
             this.createReminder_panel.Controls.Add(this.createReminderGroup_reminderMessage);
             this.createReminder_panel.Controls.Add(this.time_header);
@@ -332,6 +334,16 @@ namespace ForgetMeNot
             this.reminderDetails_message.Text = resources.GetString("reminderDetails_message.Text");
             this.reminderDetails_message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(91, 290);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "test";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,6 +390,7 @@ namespace ForgetMeNot
         private System.Windows.Forms.Label reminderDetails_createdAtTime;
         private System.Windows.Forms.Label reminderDetails_remindTime;
         private System.Windows.Forms.Button reminderDetails_goBackBtn;
+        private System.Windows.Forms.Button button1;
     }
 }
 

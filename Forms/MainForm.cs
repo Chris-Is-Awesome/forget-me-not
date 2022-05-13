@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using ForgetMeNot.Forms;
 
 namespace ForgetMeNot
 {
@@ -190,6 +191,25 @@ namespace ForgetMeNot
         private void reminderDetails_goBackBtn_Click(object sender, EventArgs e)
         {
 			ShowCreateReminderPanel();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+			NotificationForm notif = new NotificationForm();
+			notif.Reminder = Reminder.Instance.Reminders[0];
+			notif.ShowDialog();
+
+			/*
+			notifyIcon1.BalloonTipTitle = "Title";
+			notifyIcon1.BalloonTipText = "Text";
+			notifyIcon1.Icon = SystemIcons.Exclamation;
+			notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+			notifyIcon1.Container.Add(button1);
+
+			notifyIcon1.Visible = true;
+			notifyIcon1.ShowBalloonTip(2000);
+			TopMost = true;
+			*/
         }
     }
 }

@@ -62,3 +62,5 @@
 | Tuesday, 5/10/22   | 10:00      | 10:30    | Final known bug fixes (for now)
 | Wednesday, 5/11/22 | 9:00       | 9:30     | Show reminder details when reminder clicked, convert stored times to UTC
 | Wednesday, 5/11/22 | 9:30       | 11:00    | Look into how notifications work, will have to create a custom form to popup as a notification since system notifications don't support custom buttons
+| Thursday, 5/12/22  | 9:15       | 12:00    | More of the above & start process of creating notification form
+| Friday, 5/13/22    | 9:00       | 11:30    | Created notification form & started work on making it functional
