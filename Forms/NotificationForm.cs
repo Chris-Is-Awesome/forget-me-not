@@ -5,12 +5,13 @@ namespace ForgetMeNot.Forms
 {
     partial class NotificationForm : Form
     {
-        public NotificationForm()
+        public NotificationForm(Reminder.ReminderData reminder)
         {
+            Reminder = reminder;
             InitializeComponent();
         }
 
-        public Reminder.ReminderData Reminder { get; set; }
+        private Reminder.ReminderData Reminder { get; set; }
 
         private void NotificationForm_Load(object sender, EventArgs e)
         {

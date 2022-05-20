@@ -49,7 +49,7 @@ namespace ForgetMeNot
 					TextColor = Color.Black,
 					FlatStyle = FlatStyle.Flat,
 					Name = $"reminderBtn_{reminder.Id}",
-					Text = $"{reminderMsg}\nReminds me at: {reminder.Time}",
+					Text = $"{reminderMsg}\nReminds me at: {reminder.Time.ToLocalTime()}",
 					TextAlign = ContentAlignment.MiddleCenter,
 					Location = new Point(1, 19 - spaceBetweenEachReminder),
 					Size = new Size(250, 55),
@@ -90,8 +90,8 @@ namespace ForgetMeNot
 
 				// Show reminder details
 				reminderDetails_message.Text = reminder.Message;
-				reminderDetails_remindTime.Text = $"Reminds at: {reminder.Time}";
-				reminderDetails_createdAtTime.Text = $"Created at {reminder.CreatedAt}";
+				reminderDetails_remindTime.Text = $"Reminds at: {reminder.Time.ToLocalTime()}";
+				reminderDetails_createdAtTime.Text = $"Created at {reminder.CreatedAt.ToLocalTime()}";
 				reminderDetails_isSnoozeable.Text = $"Is snoozeable: {reminder.SnoozingAllowed}";
 			}
 		}
@@ -191,25 +191,6 @@ namespace ForgetMeNot
         private void reminderDetails_goBackBtn_Click(object sender, EventArgs e)
         {
 			ShowCreateReminderPanel();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-			NotificationForm notif = new NotificationForm();
-			notif.Reminder = Reminder.Instance.Reminders[0];
-			notif.ShowDialog();
-
-			/*
-			notifyIcon1.BalloonTipTitle = "Title";
-			notifyIcon1.BalloonTipText = "Text";
-			notifyIcon1.Icon = SystemIcons.Exclamation;
-			notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
-			notifyIcon1.Container.Add(button1);
-
-			notifyIcon1.Visible = true;
-			notifyIcon1.ShowBalloonTip(2000);
-			TopMost = true;
-			*/
         }
     }
 }

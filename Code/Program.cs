@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ForgetMeNot
@@ -14,6 +15,7 @@ namespace ForgetMeNot
 			Debug.Log($"===== PROGRAM STARTED AT {DateTime.Now} =====", false);
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
+			NotificationHandler.Instance.StartTimer();
 			Application.Run(new MainForm());
 		}
 	}

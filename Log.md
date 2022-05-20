@@ -64,3 +64,10 @@
 | Wednesday, 5/11/22 | 9:30       | 11:00    | Look into how notifications work, will have to create a custom form to popup as a notification since system notifications don't support custom buttons
 | Thursday, 5/12/22  | 9:15       | 12:00    | More of the above & start process of creating notification form
 | Friday, 5/13/22    | 9:00       | 11:30    | Created notification form & started work on making it functional
+
+### Week 7
+| Day                | Start Time | End Time | Task(s)                                                  |
+|--------------------|------------|----------|----------------------------------------------------------|
+| Wednesday, 5/18/22 | 9:40       | 11:45    | Planning next steps & start implementing reminder repeatability
+| Thursday, 5/19/22  | 1:00       | 3:45     | Push repeatability off to stretch goals and look into how to have a timer for notifications
+| Friday, 5/20/22    | 9:00       | 12:15    | Fire notifications at reminder time! HUGE progress! Fixed some issues with UTC time conversion too

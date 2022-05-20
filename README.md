@@ -2,16 +2,9 @@
 Reminders, notes, to-do list, anything to help keep your life organized!
 
 ## MVP to-do:
-- [ ] Trigger system notifications
+- [ ] Reminder repeating
+- [ ] Add snooze and repeat to interface
 - [ ] Run in background
-- [x] Convert reminder time to UTC when saving them to database
-- [x] Show details of selected reminder when clicked
-- [x] Store reminders in a database so they remind the reminder app
-- [x] Ability to delete reminders
-- [x] Ability to edit reminders
-- [x] Output list of reminders to a new group (into a table to show all info?)
-- [x] Create reminder with set date & time
-- [x] Load reminders from database
 
 ## Extra to-do:
 - [ ] Ability to sort and/or filter reminders
