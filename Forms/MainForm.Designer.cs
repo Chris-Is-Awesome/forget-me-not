@@ -343,7 +343,7 @@ namespace ForgetMeNot
             this.NotificationTrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("NotificationTrayIcon.Icon")));
             this.NotificationTrayIcon.Text = "Forget me Not!";
             this.NotificationTrayIcon.Visible = true;
-            this.NotificationTrayIcon.DoubleClick += new System.EventHandler(this.NotificationTrayIcon_Click);
+            this.NotificationTrayIcon.DoubleClick += new System.EventHandler(this.NotificationTrayIcon_DoubleClick);
             // 
             // NotificationTrayIconContextMenu
             // 

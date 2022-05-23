@@ -206,7 +206,7 @@ namespace ForgetMeNot
 			ShowCreateReminderPanel();
         }
 
-        private void NotificationTrayIcon_Click(object sender, EventArgs e)
+        private void NotificationTrayIcon_DoubleClick(object sender, EventArgs e)
         {
 			if (FormWindowState.Minimized == WindowState)
 				ShowWindow(Handle, SW_RESTORE);
