@@ -71,3 +71,8 @@
 | Wednesday, 5/18/22 | 9:40       | 11:45    | Planning next steps & start implementing reminder repeatability
 | Thursday, 5/19/22  | 1:00       | 3:45     | Push repeatability off to stretch goals and look into how to have a timer for notifications
 | Friday, 5/20/22    | 9:00       | 12:15    | Fire notifications at reminder time! HUGE progress! Fixed some issues with UTC time conversion too
+
+### Week 8
+| Day                | Start Time | End Time | Task(s)                                                  |
+|--------------------|------------|----------|----------------------------------------------------------|
+| Monday, 5/23/22    | 1:00       | 2:00     | Render notification popup over everything else
