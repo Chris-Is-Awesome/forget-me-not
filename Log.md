@@ -76,3 +76,4 @@
 | Day                | Start Time | End Time | Task(s)                                                  |
 |--------------------|------------|----------|----------------------------------------------------------|
 | Monday, 5/23/22    | 1:00       | 2:00     | Render notification popup over everything else
+| Monday, 5/23/22    | 2:00       | 3:15     | Run in background, minimize & re-open properly, custom context menu for notification tray icon

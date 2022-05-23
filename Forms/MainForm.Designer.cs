@@ -29,6 +29,7 @@ namespace ForgetMeNot
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.message_header = new System.Windows.Forms.Label();
             this.createReminderGroup_submitReminder_btn = new System.Windows.Forms.Button();
@@ -53,10 +54,14 @@ namespace ForgetMeNot
             this.reminderDetails_createdAtTime = new System.Windows.Forms.Label();
             this.reminderDetails_remindTime = new System.Windows.Forms.Label();
             this.reminderDetails_message = new System.Windows.Forms.Label();
+            this.NotificationTrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.NotificationTrayIconContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.left_panel.SuspendLayout();
             this.createReminder_panel.SuspendLayout();
             this.right_group.SuspendLayout();
             this.reminderDetails_panel.SuspendLayout();
+            this.NotificationTrayIconContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // message_header
@@ -332,6 +337,32 @@ namespace ForgetMeNot
             this.reminderDetails_message.Text = resources.GetString("reminderDetails_message.Text");
             this.reminderDetails_message.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // NotificationTrayIcon
+            // 
+            this.NotificationTrayIcon.ContextMenuStrip = this.NotificationTrayIconContextMenu;
+            this.NotificationTrayIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("NotificationTrayIcon.Icon")));
+            this.NotificationTrayIcon.Text = "Forget me Not!";
+            this.NotificationTrayIcon.Visible = true;
+            this.NotificationTrayIcon.DoubleClick += new System.EventHandler(this.NotificationTrayIcon_Click);
+            // 
+            // NotificationTrayIconContextMenu
+            // 
+            this.NotificationTrayIconContextMenu.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.NotificationTrayIconContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.closeToolStripMenuItem});
+            this.NotificationTrayIconContextMenu.Name = "NotificationTrayIconContextMenu";
+            this.NotificationTrayIconContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.NotificationTrayIconContextMenu.Size = new System.Drawing.Size(104, 26);
+            this.NotificationTrayIconContextMenu.Text = "Forget me Not!";
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.NotificationTrayIconContextMenu_Close_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,12 +375,14 @@ namespace ForgetMeNot
             this.Name = "MainForm";
             this.Text = "Forget me Not!";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.left_panel.ResumeLayout(false);
             this.createReminder_panel.ResumeLayout(false);
             this.createReminder_panel.PerformLayout();
             this.right_group.ResumeLayout(false);
             this.reminderDetails_panel.ResumeLayout(false);
             this.reminderDetails_panel.PerformLayout();
+            this.NotificationTrayIconContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -378,6 +411,9 @@ namespace ForgetMeNot
         private System.Windows.Forms.Label reminderDetails_createdAtTime;
         private System.Windows.Forms.Label reminderDetails_remindTime;
         private System.Windows.Forms.Button reminderDetails_goBackBtn;
+        private System.Windows.Forms.NotifyIcon NotificationTrayIcon;
+        private System.Windows.Forms.ContextMenuStrip NotificationTrayIconContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
     }
 }
 

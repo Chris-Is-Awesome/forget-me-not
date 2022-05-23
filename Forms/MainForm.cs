@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using ForgetMeNot.Forms;
 
 namespace ForgetMeNot
 {
@@ -12,6 +12,12 @@ namespace ForgetMeNot
 			InitializeComponent();
 			ShowCreateReminderPanel();
 		}
+
+		// Thanks to Mesmo for this code that restores a window from minimized state
+		// (https://stackoverflow.com/a/2725234)
+		[DllImport("user32.dll")]
+		private static extern int ShowWindow(IntPtr hWnd, uint Msg);
+		private const uint SW_RESTORE = 0x09;
 
 		private FrontBackHybrid frontToBack;
 		private DateTimePicker remindTime;
@@ -25,12 +31,19 @@ namespace ForgetMeNot
 		private void MainForm_Load(object sender, EventArgs e)
 		{
 			frontToBack = new FrontBackHybrid(this);
+			TopMost = true;
 
 			// Reparent create reminder panel because VS is bad
 			createReminder_panel.Parent = right_group;
 
 			DrawRemindersList();
 		}
+
+		private void MainForm_Resize(object sender, EventArgs e)
+        {
+			if (FormWindowState.Minimized == WindowState)
+				Hide();
+        }
 
 		private void DrawRemindersList()
         {
@@ -191,6 +204,17 @@ namespace ForgetMeNot
         private void reminderDetails_goBackBtn_Click(object sender, EventArgs e)
         {
 			ShowCreateReminderPanel();
+        }
+
+        private void NotificationTrayIcon_Click(object sender, EventArgs e)
+        {
+			if (FormWindowState.Minimized == WindowState)
+				ShowWindow(Handle, SW_RESTORE);
+		}
+
+        private void NotificationTrayIconContextMenu_Close_Click(object sender, EventArgs e)
+        {
+			Close();
         }
     }
 }
