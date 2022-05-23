@@ -22,11 +22,7 @@ namespace ForgetMeNot
 		private FrontBackHybrid frontToBack;
 		private DateTimePicker remindTime;
 
-		public void RedrawRemindersList()
-		{
-			left_panel.Controls.Clear();
-			DrawRemindersList();
-		}
+		#region MainForm
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
@@ -40,40 +36,14 @@ namespace ForgetMeNot
 		}
 
 		private void MainForm_Resize(object sender, EventArgs e)
-        {
+		{
 			if (FormWindowState.Minimized == WindowState)
 				Hide();
-        }
-
-		private void DrawRemindersList()
-        {
-			var reminders = frontToBack.LoadReminders();
-			int spaceBetweenEachReminder = 60;
-
-			foreach (Reminder.ReminderData reminder in reminders)
-			{
-				string reminderMsg = reminder.Message;
-				spaceBetweenEachReminder += -60;
-
-				// Create button
-				ComponentHelper.ButtonData buttonData = new ComponentHelper.ButtonData
-				{
-					BackgroundColor = Color.Gray,
-					TextColor = Color.Black,
-					FlatStyle = FlatStyle.Flat,
-					Name = $"reminderBtn_{reminder.Id}",
-					Text = $"{reminderMsg}\nReminds me at: {reminder.Time.ToLocalTime()}",
-					TextAlign = ContentAlignment.MiddleCenter,
-					Location = new Point(1, 19 - spaceBetweenEachReminder),
-					Size = new Size(250, 55),
-					Callback = OnReminderButtonClick
-				};
-
-				// Add button to controls
-				Button button = ComponentHelper.CreateButton(buttonData);
-				left_panel.Controls.Add(button);
-			}
 		}
+
+		#endregion
+
+		#region Panels
 
 		private void ShowCreateReminderPanel()
 		{
@@ -93,9 +63,9 @@ namespace ForgetMeNot
 		}
 
 		private void ShowReminderDetailsPanel(Reminder.ReminderData reminder)
-        {
+		{
 			if (reminder != null)
-            {
+			{
 				// Toggle panels
 				createReminder_panel.Visible = false;
 				reminderDetails_panel.Visible = true;
@@ -108,6 +78,10 @@ namespace ForgetMeNot
 				reminderDetails_isSnoozeable.Text = $"Is snoozeable: {reminder.SnoozingAllowed}";
 			}
 		}
+
+		#endregion
+
+		#region CreateReminder
 
 		private void remindIn30Minutes_btn_Click(object sender, EventArgs e)
 		{
@@ -149,7 +123,7 @@ namespace ForgetMeNot
 			bool reminder_allowSnoozing = true;
 
 			// Validate user input to ensure reminder message isn't empty
-			if  (string.IsNullOrEmpty(reminder_message))
+			if (string.IsNullOrEmpty(reminder_message))
 			{
 				PopupForm form = new PopupForm("There is no message for the reminder. Is it supposed to tell you to do nothing?", "Oopsie!");
 				form.ShowDialog();
@@ -168,12 +142,56 @@ namespace ForgetMeNot
 				if (button.Text.StartsWith("Remind"))
 					frontToBack.CreateReminder(reminder_message, reminder_time, reminder_allowSnoozing);
 				else if (button.Text.StartsWith("Edit"))
-                {
+				{
 					frontToBack.OnReminderUpdated(reminder_message, reminder_time, reminder_allowSnoozing);
 					ShowCreateReminderPanel();
 				}
 			}
 		}
+
+		#endregion
+
+		#region ReminderList
+
+		public void RedrawRemindersList()
+		{
+			left_panel.Controls.Clear();
+			DrawRemindersList();
+		}
+
+		private void DrawRemindersList()
+		{
+			var reminders = frontToBack.LoadReminders();
+			int spaceBetweenEachReminder = 60;
+
+			foreach (Reminder.ReminderData reminder in reminders)
+			{
+				string reminderMsg = reminder.Message;
+				spaceBetweenEachReminder += -60;
+
+				// Create button
+				ComponentHelper.ButtonData buttonData = new ComponentHelper.ButtonData
+				{
+					BackgroundColor = Color.Gray,
+					TextColor = Color.Black,
+					FlatStyle = FlatStyle.Flat,
+					Name = $"reminderBtn_{reminder.Id}",
+					Text = $"{reminderMsg}\nReminds me at: {reminder.Time.ToLocalTime()}",
+					TextAlign = ContentAlignment.MiddleCenter,
+					Location = new Point(1, 19 - spaceBetweenEachReminder),
+					Size = new Size(250, 55),
+					Callback = OnReminderButtonClick
+				};
+
+				// Add button to controls
+				Button button = ComponentHelper.CreateButton(buttonData);
+				left_panel.Controls.Add(button);
+			}
+		}
+
+		#endregion
+
+		#region ReminderDetails
 
 		// When reminder button is clicked, show details and edit/delete options
 		private void OnReminderButtonClick(object sender, EventArgs e)
@@ -183,7 +201,7 @@ namespace ForgetMeNot
 			ShowReminderDetailsPanel(frontToBack.OnReminderSelected(id));
 		}
 
-        private void reminderDetails_editBtn_Click(object sender, EventArgs e)
+		private void reminderDetails_editBtn_Click(object sender, EventArgs e)
         {
 			ShowCreateReminderPanel();
 			right_group.Text = "Edit reminder";
@@ -206,6 +224,10 @@ namespace ForgetMeNot
 			ShowCreateReminderPanel();
         }
 
+        #endregion
+
+        #region NotificatonTray
+
         private void NotificationTrayIcon_DoubleClick(object sender, EventArgs e)
         {
 			if (FormWindowState.Minimized == WindowState)
@@ -216,5 +238,7 @@ namespace ForgetMeNot
         {
 			Close();
         }
+
+        #endregion
     }
 }
