@@ -26,7 +26,7 @@ namespace ForgetMeNot
             Console.WriteLine($"\n{Timestamp} WARN: {message}\n");
         }
 
-        public static void LogError(object message, bool includeStacktrace = true)
+        public static void LogError(object message)
         {
             Console.WriteLine($"\n{Timestamp} ERROR: {message}\n{new StackTrace()}\n");
         }
