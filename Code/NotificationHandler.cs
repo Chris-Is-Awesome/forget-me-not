@@ -7,6 +7,7 @@ namespace ForgetMeNot
     class NotificationHandler
     {
         private Reminder reminderHandler;
+        private Timer timer;
 
         public void StartTimer()
         {
@@ -14,8 +15,9 @@ namespace ForgetMeNot
             TimeSpan interval = TimeSpan.FromSeconds(1);
 
             // Start timer
-            Timer timer = new Timer((e) =>
+            timer = new Timer((e) =>
             {
+                Debug.Log("Timer tick!");
                 CheckReminderTimes();
             }, null, TimeSpan.Zero, interval);
         }
