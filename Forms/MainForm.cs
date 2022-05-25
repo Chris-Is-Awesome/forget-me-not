@@ -40,7 +40,6 @@ namespace ForgetMeNot
 		private void MainForm_Load(object sender, EventArgs e)
 		{
 			frontToBack = new FrontBackHybrid(this);
-			TopMost = true; // Set to above any other active window
 
 			// Reparent create reminder panel because VS is bad
 			createReminder_panel.Parent = right_group;
@@ -198,7 +197,7 @@ namespace ForgetMeNot
 
 				// Add button to controls
 				Button button = ComponentHelper.CreateButton(buttonData);
-				left_panel.Controls.Add(button);
+				left_panel.Invoke(new Action(() => { left_panel.Controls.Add(button); }));
 			}
 		}
 
@@ -253,5 +252,10 @@ namespace ForgetMeNot
         }
 
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+			new Forms.NotificationForm(Reminder.Instance.Reminders[0]).ShowDialog();
+        }
     }
 }
