@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace ForgetMeNot.Forms
@@ -8,49 +8,88 @@ namespace ForgetMeNot.Forms
     {
         public NotificationForm(Reminder.ReminderData reminder)
         {
-            FiredReminder = reminder;
+            this.reminder = reminder;
             InitializeComponent();
         }
 
-        // Thanks to Kirtan Patel for this code to make window stay on top of all other windows
-        // (https://www.c-sharpcorner.com/uploadfile/kirtan007/make-form-stay-always-on-top-of-every-window/)
-        private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
-        private const uint SWP_NOSIZE = 0x0001;
-        private const uint SWP_NOMOVE = 0x0002;
-        private const uint TOPMOST_FLAGS = SWP_NOMOVE | SWP_NOSIZE;
-        private Reminder.ReminderData FiredReminder { get; set; }
-
-        [DllImport("user32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+        private Reminder.ReminderData reminder;
+        private DateTime remindTime;
 
         private void NotificationForm_Load(object sender, EventArgs e)
         {
-            reminder_message.Text = FiredReminder.Message;
-            //TopMost = true; // Set to above any other active window
-            //SetWindowPos(Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
-            Activate();
+            // Disable main window control (avoids many potential issues)
+            Invoke(new Action(() => { MainForm.Instance.Enabled = false; }));
 
-            // Disable snooze button if snoozing disabled
-            if (!FiredReminder.SnoozingAllowed)
+            // Set reminder text
+            reminder_message.Text = reminder.Message;
+
+            // Disable snooze interface if snoozing disabled
+            if (!reminder.SnoozingAllowed)
             {
                 snooze_btn.Enabled = false;
                 snooze_btn.Visible = false;
+                snoozeTime.Enabled = false;
+                snoozeTime.Visible = false;
                 markAsDone_btn.Location = new System.Drawing.Point(Size.Width / 3, markAsDone_btn.Location.Y);
             }
+            else
+                snoozeTime.SelectedIndex = 0;
+
+            Activate();
         }
 
         private void markAsDone_btn_Click(object sender, EventArgs e)
         {
-            DatabaseHandler.Instance.DeleteData(FiredReminder.Id);
-            Reminder.Instance.Reminders.Remove(FiredReminder);
+            // Delete reminder
+            DatabaseHandler.Instance.DeleteData(reminder.Id);
+            Reminder.Instance.Reminders.Remove(reminder);
             MainForm.Instance.RedrawRemindersList();
-            Close();
+
+            CloseWindow();
+        }
+
+        private void snoozeTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DateTime currentTime = DateTime.Now;
+            string time = snoozeTime.SelectedItem.ToString();
+            string[] numbers = Regex.Split(time, @"\D+");
+
+            if (char.IsDigit(time[0]))
+            {
+                int amount = int.Parse(string.Join("", numbers));
+
+                // If snoozing for minutes
+                if (time.Contains("minute"))
+                    remindTime = currentTime.AddMinutes(amount);
+                // If snoozing for hours
+                else if (time.Contains("hour"))
+                    remindTime = currentTime.AddHours(amount);
+            }
+            // If snoozing until tomorrow
+            else if (time.EndsWith("tomorrow"))
+                remindTime = currentTime.AddDays(1);
+
+            // Update button text to show remind time
+            snooze_btn.Text = $"Snooze until\n{remindTime}";
         }
 
         private void snooze_btn_Click(object sender, EventArgs e)
         {
-            Debug.Log("Snooze clicked!");
+            // Snooze reminder
+            reminder.ChangeTime(remindTime);
+            reminder.HasFired = false;
+            DatabaseHandler.Instance.UpdateData(reminder);
+            int index = Reminder.Instance.Reminders.FindIndex(x => x.Id == reminder.Id);
+            Reminder.Instance.Reminders[index] = reminder;
+            MainForm.Instance.RedrawRemindersList();
+
+            CloseWindow();
+        }
+
+        private void CloseWindow()
+        {
+            // Re-enable main window control
+            Invoke(new Action(() => { MainForm.Instance.Enabled = true; }));
             Close();
         }
     }

@@ -1,9 +1,6 @@
 # Forget me Not!
 Reminders, notes, to-do list, anything to help keep your life organized!
 
-## MVP to-do:
-- [ ] Add snooze functionality to reminder notification
-
 ## Extra to-do:
 - [ ] Ability to sort and/or filter reminders
 - [ ] Reminder repeating
