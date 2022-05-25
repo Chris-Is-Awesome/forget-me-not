@@ -13,6 +13,19 @@ namespace ForgetMeNot
 			ShowCreateReminderPanel();
 		}
 
+		private static MainForm _instance;
+
+		public static MainForm Instance
+		{
+			get
+			{
+				if (_instance == null)
+					_instance = new MainForm();
+
+				return _instance;
+			}
+		}
+
 		// Thanks to Mesmo for this code that restores a window from minimized state
 		// (https://stackoverflow.com/a/2725234)
 		[DllImport("user32.dll")]
@@ -27,7 +40,7 @@ namespace ForgetMeNot
 		private void MainForm_Load(object sender, EventArgs e)
 		{
 			frontToBack = new FrontBackHybrid(this);
-			TopMost = true;
+			TopMost = true; // Set to above any other active window
 
 			// Reparent create reminder panel because VS is bad
 			createReminder_panel.Parent = right_group;
@@ -155,7 +168,7 @@ namespace ForgetMeNot
 
 		public void RedrawRemindersList()
 		{
-			left_panel.Controls.Clear();
+			left_panel.Invoke(new Action(() => { left_panel.Controls.Clear(); }));
 			DrawRemindersList();
 		}
 
