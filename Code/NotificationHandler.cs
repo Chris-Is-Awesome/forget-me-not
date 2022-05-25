@@ -6,20 +6,7 @@ namespace ForgetMeNot
 {
     class NotificationHandler
     {
-        private static NotificationHandler _instance;
         private Reminder reminderHandler;
-        private Timer timer;
-
-        public static NotificationHandler Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new NotificationHandler();
-
-                return _instance;
-            }
-        }
 
         public void StartTimer()
         {
@@ -27,7 +14,7 @@ namespace ForgetMeNot
             TimeSpan interval = TimeSpan.FromSeconds(1);
 
             // Start timer
-            timer = new Timer((e) =>
+            Timer timer = new Timer((e) =>
             {
                 CheckReminderTimes();
             }, null, TimeSpan.Zero, interval);
