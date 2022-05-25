@@ -77,3 +77,6 @@
 |--------------------|------------|----------|----------------------------------------------------------|
 | Monday, 5/23/22    | 1:00       | 2:00     | Render notification popup over everything else
 | Monday, 5/23/22    | 2:00       | 3:15     | Run in background, minimize & re-open properly, custom context menu for notification tray icon
+| Monday, 5/23/22    | 3:15       | 4:00     | Start implementing mark as done and snooze functionalites
+| Tuesday, 5/24/22   | 9:15       | 12:00    | Got distracted by a shiny feature that didn't work out
+| Wednesday, 5/25/22 | 9:00       | 10:00    | Added mark as done functionality

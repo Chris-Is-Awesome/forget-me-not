@@ -8,7 +8,7 @@ namespace ForgetMeNot.Forms
     {
         public NotificationForm(Reminder.ReminderData reminder)
         {
-            Reminder = reminder;
+            FiredReminder = reminder;
             InitializeComponent();
         }
 
@@ -18,7 +18,7 @@ namespace ForgetMeNot.Forms
         private const uint SWP_NOSIZE = 0x0001;
         private const uint SWP_NOMOVE = 0x0002;
         private const uint TOPMOST_FLAGS = SWP_NOMOVE | SWP_NOSIZE;
-        private Reminder.ReminderData Reminder { get; set; }
+        private Reminder.ReminderData FiredReminder { get; set; }
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -26,12 +26,13 @@ namespace ForgetMeNot.Forms
 
         private void NotificationForm_Load(object sender, EventArgs e)
         {
-            reminder_message.Text = Reminder.Message;
+            reminder_message.Text = FiredReminder.Message;
             //TopMost = true; // Set to above any other active window
-            SetWindowPos(this.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+            //SetWindowPos(Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+            Activate();
 
             // Disable snooze button if snoozing disabled
-            if (!Reminder.SnoozingAllowed)
+            if (!FiredReminder.SnoozingAllowed)
             {
                 snooze_btn.Enabled = false;
                 snooze_btn.Visible = false;
@@ -41,12 +42,16 @@ namespace ForgetMeNot.Forms
 
         private void markAsDone_btn_Click(object sender, EventArgs e)
         {
-            Debug.Log("Mark as done clicked!");
+            DatabaseHandler.Instance.DeleteData(FiredReminder.Id);
+            Reminder.Instance.Reminders.Remove(FiredReminder);
+            MainForm.Instance.RedrawRemindersList();
+            Close();
         }
 
         private void snooze_btn_Click(object sender, EventArgs e)
         {
             Debug.Log("Snooze clicked!");
+            Close();
         }
     }
 }

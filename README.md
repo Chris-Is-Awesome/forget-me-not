@@ -2,8 +2,7 @@
 Reminders, notes, to-do list, anything to help keep your life organized!
 
 ## MVP to-do:
-- [ ] Add snooze and repeat to interface
-- [ ] Run in background
+- [ ] Add snooze functionality to reminder notification
 
 ## Extra to-do:
 - [ ] Ability to sort and/or filter reminders
