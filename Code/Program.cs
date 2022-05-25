@@ -15,8 +15,8 @@ namespace ForgetMeNot
 			Debug.Log($"===== PROGRAM STARTED AT {DateTime.Now} =====", false);
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			NotificationHandler.Instance.StartTimer();
-			Application.Run(new MainForm());
+			new NotificationHandler().StartTimer();
+			Application.Run(MainForm.Instance);
 		}
 	}
 }
