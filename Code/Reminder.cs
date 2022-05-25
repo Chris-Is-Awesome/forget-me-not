@@ -61,7 +61,7 @@ namespace ForgetMeNot
 		{
 			public string Id { get; }
 			public string Message { get; }
-			public DateTime Time { get; }
+			public DateTime Time { get; private set; }
 			public bool SnoozingAllowed { get; }
 			public DateTime CreatedAt { get; }
 			public bool HasFired { get; set; }
@@ -74,6 +74,11 @@ namespace ForgetMeNot
 				SnoozingAllowed = snoozingAllowed;
 				CreatedAt = createdAt.ToUniversalTime();
 			}
+
+			public void ChangeTime(DateTime newTime)
+            {
+				Time = newTime.ToUniversalTime();
+            }
 		}
 	}
 }
