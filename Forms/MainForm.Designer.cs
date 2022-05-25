@@ -57,6 +57,7 @@ namespace ForgetMeNot
             this.NotificationTrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.NotificationTrayIconContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.left_panel.SuspendLayout();
             this.createReminder_panel.SuspendLayout();
             this.right_group.SuspendLayout();
@@ -201,6 +202,7 @@ namespace ForgetMeNot
             // createReminder_panel
             // 
             this.createReminder_panel.BackColor = System.Drawing.Color.Transparent;
+            this.createReminder_panel.Controls.Add(this.button1);
             this.createReminder_panel.Controls.Add(this.message_header);
             this.createReminder_panel.Controls.Add(this.createReminderGroup_reminderMessage);
             this.createReminder_panel.Controls.Add(this.time_header);
@@ -363,6 +365,16 @@ namespace ForgetMeNot
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.NotificationTrayIconContextMenu_Close_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(113, 281);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "test";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -414,6 +426,7 @@ namespace ForgetMeNot
         private System.Windows.Forms.NotifyIcon NotificationTrayIcon;
         private System.Windows.Forms.ContextMenuStrip NotificationTrayIconContextMenu;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 
