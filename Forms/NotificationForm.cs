@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Plugin.SimpleAudioPlayer;
+using System;
+using System.IO;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -36,6 +39,14 @@ namespace ForgetMeNot.Forms
                 snoozeTime.SelectedIndex = 0;
 
             Activate();
+            PlayRingtone();
+        }
+
+        private void PlayRingtone()
+        {
+            ISimpleAudioPlayer player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            player.Load(Utility.GetStreamFromFile("Audio/Ringtones/Hornet.mp3"));
+            player.Play();
         }
 
         private void markAsDone_btn_Click(object sender, EventArgs e)

@@ -80,4 +80,5 @@
 | Monday, 5/23/22    | 3:15       | 4:00     | Start implementing mark as done and snooze functionalites
 | Tuesday, 5/24/22   | 9:15       | 12:00    | Got distracted by a shiny feature that didn't work out
 | Wednesday, 5/25/22 | 9:00       | 10:00    | Added mark as done functionality
-| Wednesday, 5/26/22 | 10:00      | 12:00    | Added snooze functionality
+| Wednesday, 5/25/22 | 10:00      | 12:00    | Added snooze functionality
+| Thursday, 5/26/22  | 9:00       | 10:30    | Get ringtone to play when notification fires
