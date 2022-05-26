@@ -82,3 +82,4 @@
 | Wednesday, 5/25/22 | 9:00       | 10:00    | Added mark as done functionality
 | Wednesday, 5/25/22 | 10:00      | 12:00    | Added snooze functionality
 | Thursday, 5/26/22  | 9:00       | 10:30    | Get ringtone to play when notification fires
+| Thursday, 5/26/22  | 10:30      | 12:00    | Cleanup & some minor bug fixing

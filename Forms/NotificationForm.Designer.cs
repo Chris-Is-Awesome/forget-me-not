@@ -107,6 +107,7 @@
             this.Name = "NotificationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reminder!";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NotificationForm_FormClosing);
             this.Load += new System.EventHandler(this.NotificationForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,7 +1,5 @@
 ﻿using Plugin.SimpleAudioPlayer;
 using System;
-using System.IO;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -12,11 +10,15 @@ namespace ForgetMeNot.Forms
         public NotificationForm(Reminder.ReminderData reminder)
         {
             this.reminder = reminder;
+            player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             InitializeComponent();
         }
 
         private Reminder.ReminderData reminder;
         private DateTime remindTime;
+        ISimpleAudioPlayer player;
+
+        #region NotificationForm
 
         private void NotificationForm_Load(object sender, EventArgs e)
         {
@@ -42,22 +44,14 @@ namespace ForgetMeNot.Forms
             PlayRingtone();
         }
 
-        private void PlayRingtone()
+        private void NotificationForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ISimpleAudioPlayer player = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
-            player.Load(Utility.GetStreamFromFile("Audio/Ringtones/Hornet.mp3"));
-            player.Play();
-        }
-
-        private void markAsDone_btn_Click(object sender, EventArgs e)
-        {
-            // Delete reminder
-            DatabaseHandler.Instance.DeleteData(reminder.Id);
-            Reminder.Instance.Reminders.Remove(reminder);
-            MainForm.Instance.RedrawRemindersList();
-
             CloseWindow();
         }
+
+        #endregion
+
+        #region Snooze
 
         private void snoozeTime_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -97,10 +91,37 @@ namespace ForgetMeNot.Forms
             CloseWindow();
         }
 
+        #endregion
+
+        private void markAsDone_btn_Click(object sender, EventArgs e)
+        {
+            // Delete reminder
+            DatabaseHandler.Instance.DeleteData(reminder.Id);
+            Reminder.Instance.Reminders.Remove(reminder);
+            MainForm.Instance.RedrawRemindersList();
+
+            CloseWindow();
+        }
+
+        private void PlayRingtone()
+        {
+            if (!player.IsPlaying)
+            {
+                player.Load(Utility.GetStreamFromFile("Audio/Ringtones/Hornet.mp3"));
+                player.Play();
+                player.Loop = true;
+            }
+        }
+
         private void CloseWindow()
         {
             // Re-enable main window control
             Invoke(new Action(() => { MainForm.Instance.Enabled = true; }));
+
+            // Stop playing ringtone & free memory
+            player.Stop();
+            player.Dispose();
+
             Close();
         }
     }
