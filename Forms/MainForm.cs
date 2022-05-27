@@ -132,7 +132,7 @@ namespace ForgetMeNot
 			// Read reminder data
 			string reminder_message = createReminderGroup_reminderMessage.Text;
 			DateTime reminder_time = remindTime.Value;
-			bool reminder_allowSnoozing = true;
+			bool reminder_allowSnoozing = createReminderGroup_canSnooze.Checked;
 
 			// Validate user input to ensure reminder message isn't empty
 			if (string.IsNullOrEmpty(reminder_message))

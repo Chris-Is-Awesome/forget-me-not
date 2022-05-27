@@ -57,6 +57,7 @@ namespace ForgetMeNot
             this.NotificationTrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.NotificationTrayIconContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createReminderGroup_canSnooze = new System.Windows.Forms.CheckBox();
             this.left_panel.SuspendLayout();
             this.createReminder_panel.SuspendLayout();
             this.right_group.SuspendLayout();
@@ -79,7 +80,7 @@ namespace ForgetMeNot
             this.createReminderGroup_submitReminder_btn.BackColor = System.Drawing.Color.Gray;
             this.createReminderGroup_submitReminder_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createReminderGroup_submitReminder_btn.ForeColor = System.Drawing.Color.Black;
-            this.createReminderGroup_submitReminder_btn.Location = new System.Drawing.Point(94, 205);
+            this.createReminderGroup_submitReminder_btn.Location = new System.Drawing.Point(95, 236);
             this.createReminderGroup_submitReminder_btn.Name = "createReminderGroup_submitReminder_btn";
             this.createReminderGroup_submitReminder_btn.Size = new System.Drawing.Size(75, 23);
             this.createReminderGroup_submitReminder_btn.TabIndex = 6;
@@ -201,6 +202,7 @@ namespace ForgetMeNot
             // createReminder_panel
             // 
             this.createReminder_panel.BackColor = System.Drawing.Color.Transparent;
+            this.createReminder_panel.Controls.Add(this.createReminderGroup_canSnooze);
             this.createReminder_panel.Controls.Add(this.button1);
             this.createReminder_panel.Controls.Add(this.message_header);
             this.createReminder_panel.Controls.Add(this.createReminderGroup_reminderMessage);
@@ -218,7 +220,7 @@ namespace ForgetMeNot
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(113, 281);
+            this.button1.Location = new System.Drawing.Point(98, 292);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
@@ -360,6 +362,18 @@ namespace ForgetMeNot
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.NotificationTrayIconContextMenu_Close_Click);
             // 
+            // createReminderGroup_canSnooze
+            // 
+            this.createReminderGroup_canSnooze.AutoSize = true;
+            this.createReminderGroup_canSnooze.Checked = true;
+            this.createReminderGroup_canSnooze.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.createReminderGroup_canSnooze.Location = new System.Drawing.Point(90, 205);
+            this.createReminderGroup_canSnooze.Name = "createReminderGroup_canSnooze";
+            this.createReminderGroup_canSnooze.Size = new System.Drawing.Size(88, 17);
+            this.createReminderGroup_canSnooze.TabIndex = 10;
+            this.createReminderGroup_canSnooze.Text = "Can snooze?";
+            this.createReminderGroup_canSnooze.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -411,6 +425,7 @@ namespace ForgetMeNot
         private System.Windows.Forms.ContextMenuStrip NotificationTrayIconContextMenu;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox createReminderGroup_canSnooze;
     }
 }
 
