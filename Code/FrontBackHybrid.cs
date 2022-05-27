@@ -39,11 +39,6 @@ namespace ForgetMeNot
             return selectedReminder;
         }
 
-        public void OnReminderCopied()
-        {
-            //
-        }
-
         public void OnReminderUpdated(string message, DateTime time, bool allowSnoozing)
         {
             if (selectedReminder != null)

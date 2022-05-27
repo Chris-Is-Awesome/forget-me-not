@@ -36,12 +36,6 @@ namespace ForgetMeNot
                         // Fire notification
                         FireNotification(reminder);
                     }
-                    /*
-                    else
-                    {
-                        Debug.Log($"Not to run yet...\n{DateTime.Now.TimeOfDay} < {reminder.Time.ToLocalTime().TimeOfDay}");
-                    }
-                    */
                 }
             }
         }

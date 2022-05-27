@@ -44,11 +44,11 @@ namespace ForgetMeNot
             this.left_panel = new System.Windows.Forms.Panel();
             this.left_scroll = new System.Windows.Forms.VScrollBar();
             this.createReminder_panel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.right_group = new System.Windows.Forms.GroupBox();
             this.reminderDetails_panel = new System.Windows.Forms.Panel();
             this.reminderDetails_goBackBtn = new System.Windows.Forms.Button();
             this.reminderDetails_deleteBtn = new System.Windows.Forms.Button();
-            this.reminderDetails_copyBtn = new System.Windows.Forms.Button();
             this.reminderDetails_editBtn = new System.Windows.Forms.Button();
             this.reminderDetails_isSnoozeable = new System.Windows.Forms.Label();
             this.reminderDetails_createdAtTime = new System.Windows.Forms.Label();
@@ -57,7 +57,6 @@ namespace ForgetMeNot
             this.NotificationTrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.NotificationTrayIconContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.left_panel.SuspendLayout();
             this.createReminder_panel.SuspendLayout();
             this.right_group.SuspendLayout();
@@ -212,13 +211,24 @@ namespace ForgetMeNot
             this.createReminder_panel.Controls.Add(this.createReminderGroup_remindTime);
             this.createReminder_panel.Controls.Add(this.createReminderGroup_remindIn6Hours_btn);
             this.createReminder_panel.Controls.Add(this.createReminderGroup_remindInMorning_btn);
-            this.createReminder_panel.Location = new System.Drawing.Point(0, 0);
+            this.createReminder_panel.Location = new System.Drawing.Point(5, 12);
             this.createReminder_panel.Name = "createReminder_panel";
             this.createReminder_panel.Size = new System.Drawing.Size(268, 343);
             this.createReminder_panel.TabIndex = 4;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(113, 281);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "test";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // right_group
             // 
+            this.right_group.Controls.Add(this.createReminder_panel);
             this.right_group.Controls.Add(this.reminderDetails_panel);
             this.right_group.Location = new System.Drawing.Point(304, 12);
             this.right_group.Name = "right_group";
@@ -230,10 +240,8 @@ namespace ForgetMeNot
             // reminderDetails_panel
             // 
             this.reminderDetails_panel.BackColor = System.Drawing.Color.Transparent;
-            this.reminderDetails_panel.Controls.Add(this.createReminder_panel);
             this.reminderDetails_panel.Controls.Add(this.reminderDetails_goBackBtn);
             this.reminderDetails_panel.Controls.Add(this.reminderDetails_deleteBtn);
-            this.reminderDetails_panel.Controls.Add(this.reminderDetails_copyBtn);
             this.reminderDetails_panel.Controls.Add(this.reminderDetails_editBtn);
             this.reminderDetails_panel.Controls.Add(this.reminderDetails_isSnoozeable);
             this.reminderDetails_panel.Controls.Add(this.reminderDetails_createdAtTime);
@@ -250,7 +258,7 @@ namespace ForgetMeNot
             this.reminderDetails_goBackBtn.BackColor = System.Drawing.Color.Gray;
             this.reminderDetails_goBackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reminderDetails_goBackBtn.ForeColor = System.Drawing.Color.Black;
-            this.reminderDetails_goBackBtn.Location = new System.Drawing.Point(108, 202);
+            this.reminderDetails_goBackBtn.Location = new System.Drawing.Point(198, 162);
             this.reminderDetails_goBackBtn.Name = "reminderDetails_goBackBtn";
             this.reminderDetails_goBackBtn.Size = new System.Drawing.Size(58, 23);
             this.reminderDetails_goBackBtn.TabIndex = 7;
@@ -263,26 +271,13 @@ namespace ForgetMeNot
             this.reminderDetails_deleteBtn.BackColor = System.Drawing.Color.Gray;
             this.reminderDetails_deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reminderDetails_deleteBtn.ForeColor = System.Drawing.Color.Black;
-            this.reminderDetails_deleteBtn.Location = new System.Drawing.Point(198, 162);
+            this.reminderDetails_deleteBtn.Location = new System.Drawing.Point(108, 162);
             this.reminderDetails_deleteBtn.Name = "reminderDetails_deleteBtn";
             this.reminderDetails_deleteBtn.Size = new System.Drawing.Size(58, 23);
             this.reminderDetails_deleteBtn.TabIndex = 6;
             this.reminderDetails_deleteBtn.Text = "Delete";
             this.reminderDetails_deleteBtn.UseVisualStyleBackColor = false;
             this.reminderDetails_deleteBtn.Click += new System.EventHandler(this.reminderDetails_deleteBtn_Click);
-            // 
-            // reminderDetails_copyBtn
-            // 
-            this.reminderDetails_copyBtn.BackColor = System.Drawing.Color.Gray;
-            this.reminderDetails_copyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reminderDetails_copyBtn.ForeColor = System.Drawing.Color.Black;
-            this.reminderDetails_copyBtn.Location = new System.Drawing.Point(108, 162);
-            this.reminderDetails_copyBtn.Name = "reminderDetails_copyBtn";
-            this.reminderDetails_copyBtn.Size = new System.Drawing.Size(58, 23);
-            this.reminderDetails_copyBtn.TabIndex = 5;
-            this.reminderDetails_copyBtn.Text = "Copy";
-            this.reminderDetails_copyBtn.UseVisualStyleBackColor = false;
-            this.reminderDetails_copyBtn.Click += new System.EventHandler(this.reminderDetails_copyBtn_Click);
             // 
             // reminderDetails_editBtn
             // 
@@ -365,16 +360,6 @@ namespace ForgetMeNot
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.NotificationTrayIconContextMenu_Close_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(113, 281);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "test";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,7 +402,6 @@ namespace ForgetMeNot
         private System.Windows.Forms.Panel reminderDetails_panel;
         private System.Windows.Forms.Label reminderDetails_message;
         private System.Windows.Forms.Button reminderDetails_deleteBtn;
-        private System.Windows.Forms.Button reminderDetails_copyBtn;
         private System.Windows.Forms.Button reminderDetails_editBtn;
         private System.Windows.Forms.Label reminderDetails_isSnoozeable;
         private System.Windows.Forms.Label reminderDetails_createdAtTime;

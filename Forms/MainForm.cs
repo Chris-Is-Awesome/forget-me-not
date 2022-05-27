@@ -220,11 +220,6 @@ namespace ForgetMeNot
 			createReminderGroup_submitReminder_btn.Text = "Edit";
         }
 
-        private void reminderDetails_copyBtn_Click(object sender, EventArgs e)
-        {
-			frontToBack.OnReminderCopied();
-        }
-
         private void reminderDetails_deleteBtn_Click(object sender, EventArgs e)
         {
 			frontToBack.OnReminderDeleted();
