@@ -44,6 +44,7 @@ namespace ForgetMeNot
             this.left_panel = new System.Windows.Forms.Panel();
             this.left_scroll = new System.Windows.Forms.VScrollBar();
             this.createReminder_panel = new System.Windows.Forms.Panel();
+            this.createReminderGroup_canSnooze = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.right_group = new System.Windows.Forms.GroupBox();
             this.reminderDetails_panel = new System.Windows.Forms.Panel();
@@ -57,7 +58,6 @@ namespace ForgetMeNot
             this.NotificationTrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.NotificationTrayIconContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createReminderGroup_canSnooze = new System.Windows.Forms.CheckBox();
             this.left_panel.SuspendLayout();
             this.createReminder_panel.SuspendLayout();
             this.right_group.SuspendLayout();
@@ -218,6 +218,18 @@ namespace ForgetMeNot
             this.createReminder_panel.Size = new System.Drawing.Size(268, 343);
             this.createReminder_panel.TabIndex = 4;
             // 
+            // createReminderGroup_canSnooze
+            // 
+            this.createReminderGroup_canSnooze.AutoSize = true;
+            this.createReminderGroup_canSnooze.Checked = true;
+            this.createReminderGroup_canSnooze.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.createReminderGroup_canSnooze.Location = new System.Drawing.Point(90, 205);
+            this.createReminderGroup_canSnooze.Name = "createReminderGroup_canSnooze";
+            this.createReminderGroup_canSnooze.Size = new System.Drawing.Size(88, 17);
+            this.createReminderGroup_canSnooze.TabIndex = 10;
+            this.createReminderGroup_canSnooze.Text = "Can snooze?";
+            this.createReminderGroup_canSnooze.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(98, 292);
@@ -361,18 +373,6 @@ namespace ForgetMeNot
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.NotificationTrayIconContextMenu_Close_Click);
-            // 
-            // createReminderGroup_canSnooze
-            // 
-            this.createReminderGroup_canSnooze.AutoSize = true;
-            this.createReminderGroup_canSnooze.Checked = true;
-            this.createReminderGroup_canSnooze.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.createReminderGroup_canSnooze.Location = new System.Drawing.Point(90, 205);
-            this.createReminderGroup_canSnooze.Name = "createReminderGroup_canSnooze";
-            this.createReminderGroup_canSnooze.Size = new System.Drawing.Size(88, 17);
-            this.createReminderGroup_canSnooze.TabIndex = 10;
-            this.createReminderGroup_canSnooze.Text = "Can snooze?";
-            this.createReminderGroup_canSnooze.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
