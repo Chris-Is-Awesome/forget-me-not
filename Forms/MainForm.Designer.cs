@@ -45,7 +45,6 @@ namespace ForgetMeNot
             this.left_scroll = new System.Windows.Forms.VScrollBar();
             this.createReminder_panel = new System.Windows.Forms.Panel();
             this.createReminderGroup_canSnooze = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.right_group = new System.Windows.Forms.GroupBox();
             this.reminderDetails_panel = new System.Windows.Forms.Panel();
             this.reminderDetails_goBackBtn = new System.Windows.Forms.Button();
@@ -203,7 +202,6 @@ namespace ForgetMeNot
             // 
             this.createReminder_panel.BackColor = System.Drawing.Color.Transparent;
             this.createReminder_panel.Controls.Add(this.createReminderGroup_canSnooze);
-            this.createReminder_panel.Controls.Add(this.button1);
             this.createReminder_panel.Controls.Add(this.message_header);
             this.createReminder_panel.Controls.Add(this.createReminderGroup_reminderMessage);
             this.createReminder_panel.Controls.Add(this.time_header);
@@ -229,16 +227,6 @@ namespace ForgetMeNot
             this.createReminderGroup_canSnooze.TabIndex = 10;
             this.createReminderGroup_canSnooze.Text = "Can snooze?";
             this.createReminderGroup_canSnooze.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(98, 292);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "test";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // right_group
             // 
@@ -424,7 +412,6 @@ namespace ForgetMeNot
         private System.Windows.Forms.NotifyIcon NotificationTrayIcon;
         private System.Windows.Forms.ContextMenuStrip NotificationTrayIconContextMenu;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox createReminderGroup_canSnooze;
     }
 }

@@ -247,10 +247,5 @@ namespace ForgetMeNot
         }
 
         #endregion
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-			new Forms.NotificationForm(Reminder.Instance.Reminders[0]).ShowDialog();
-        }
     }
 }
