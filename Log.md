@@ -84,3 +84,9 @@
 | Thursday, 5/26/22  | 9:00       | 10:30    | Get ringtone to play when notification fires
 | Thursday, 5/26/22  | 10:30      | 12:00    | Cleanup & some minor bug fixing
 | Friday, 5/27/22    | 1:00       | 1:30     | Final cleanup & add snooze checkbox in create reminder panel
+| Friday, 5/27/22    | 1:30       | 4:00     | Work on readme and presentation planning
+
+### Week 9
+| Day                | Start Time | End Time | Task(s)                                                  |
+|--------------------|------------|----------|----------------------------------------------------------|
+| Monday, 5/31/22    | 9:00       | 12:00    | Work on readme and presentation planning
